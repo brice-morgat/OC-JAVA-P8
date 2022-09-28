@@ -5,6 +5,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import gpsUtil.GpsUtil;
@@ -18,9 +20,10 @@ import tourGuide.user.UserReward;
 @Service
 public class RewardsService {
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
+	private final Logger logger = LoggerFactory.getLogger(RewardsService.class);
 
 	// proximity in miles
-    private int defaultProximityBuffer = 10;
+    private int defaultProximityBuffer = 100;
 	private int proximityBuffer = defaultProximityBuffer;
 	private int attractionProximityRange = 200;
 	private final GpsUtil gpsUtil;
@@ -56,24 +59,51 @@ public class RewardsService {
 //		}
 //	}
 
+	private void submitRewardPoints(UserReward userReward, Attraction attraction, User user) {
+//		userReward.setRewardPoints(10);
+//		user.addUserReward(userReward);
+		CompletableFuture.supplyAsync(() -> {
+					return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
+				}, executorService)
+				.thenAccept(points -> {
+					userReward.setRewardPoints(points);
+					user.addUserReward(userReward);
+				});
+	}
+
+	public void calculateDistanceReward(User user, VisitedLocation visitedLocation, Attraction attraction) {
+		Double distance = getDistance(attraction, visitedLocation.location);
+		if(distance <= proximityBuffer) {
+			UserReward userReward = new UserReward(visitedLocation, attraction, distance.intValue());
+			submitRewardPoints(userReward, attraction, user);
+		}
+	}
+
 	public void calculateRewards(User user) {
+		List<Attraction> attractions = gpsUtil.getAttractions();
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
 
-//		System.out.println("BONJOUR");
-		CompletableFuture.supplyAsync(gpsUtil::getAttractions).thenAccept(attractions ->  {
-			for(VisitedLocation visitedLocation : userLocations) {
-				for(Attraction attraction : attractions) {
-					if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
-						if(nearAttraction(visitedLocation, attraction)) {
-							CompletableFuture.supplyAsync(() -> getRewardPoints(attraction, user), executorService).thenAccept(rewardPoints -> {
-								UserReward userReward = new UserReward(visitedLocation, attraction, rewardPoints);
-								user.addUserReward(userReward);
-							});
-						}
-					}
+		for(VisitedLocation visitedLocation : userLocations) {
+			for(Attraction attraction : attractions) {
+				if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
+					calculateDistanceReward(user, visitedLocation, attraction);
 				}
 			}
-		});
+		}
+
+//		CompletableFuture.supplyAsync(gpsUtil::getAttractions).thenAccept(attractions ->  {
+//			for(VisitedLocation visitedLocation : userLocations) {
+//				for(Attraction attraction : attractions) {
+//					if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
+//						if(nearAttraction(visitedLocation, attraction)) {
+//							int rewardPoints =  getRewardPoints(attraction, user);
+//							UserReward userReward = new UserReward(visitedLocation, attraction, rewardPoints);
+//							user.addUserReward(userReward);
+//						}
+//					}
+//				}
+//			}
+//		});
 	}
 	
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
@@ -81,10 +111,11 @@ public class RewardsService {
 	}
 	
 	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-		return getDistance(attraction, visitedLocation.location) > proximityBuffer ? false : true;
+		return getDistance(attraction, visitedLocation.location) >= proximityBuffer ? false : true;
 	}
 	
-	private int getRewardPoints(Attraction attraction, User user) {
+	public int getRewardPoints(Attraction attraction, User user) {
+//		logger.info("Get rewards points for user name : {} and attraction name ", user.getUserName());
 		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
 	}
 	

@@ -1,6 +1,9 @@
 package tourGuide.tracker;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,6 +22,7 @@ public class Tracker extends Thread {
 	private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 	private final TourGuideService tourGuideService;
 	private boolean stop = false;
+	private final Map<User, Boolean> completedTrackingMap = new HashMap<>();
 
 	public Tracker(TourGuideService tourGuideService) {
 		this.tourGuideService = tourGuideService;
@@ -33,25 +37,48 @@ public class Tracker extends Thread {
 		stop = true;
 		executorService.shutdownNow();
 	}
+
+	public synchronized void finalizeTrack(User user) {
+		completedTrackingMap.put(user, true);
+	}
 	
 	@Override
 	public void run() {
 		StopWatch stopWatch = new StopWatch();
 		while(true) {
+
 			if(Thread.currentThread().isInterrupted() || stop) {
-				logger.debug("Tracker stopping");
+				logger.debug("Shutting down tracker");
 				break;
 			}
-			
+
 			List<User> users = tourGuideService.getAllUsers();
+			users.forEach(u -> completedTrackingMap.put(u, false));
+
 			logger.debug("Begin Tracker. Tracking " + users.size() + " users.");
 			stopWatch.start();
-			users.forEach(u -> {
-				tourGuideService.trackUserLocation(u);
-			});
+			users.forEach(u -> tourGuideService.trackUserLocation(u));
+
+			boolean notFinished = true;
+			while(notFinished) {
+				try {
+					//logger.debug("Waiting for tracking to finish...");
+					TimeUnit.MILLISECONDS.sleep(100);
+				} catch (InterruptedException e) {
+					break;
+				}
+
+				if(!completedTrackingMap.containsValue(false)) {
+					notFinished = false;
+				}
+			}
+
+			completedTrackingMap.clear();
+
 			stopWatch.stop();
-			logger.debug("Tracker Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds."); 
+			logger.debug("Tracker Time Elapsed: " + TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()) + " seconds.");
 			stopWatch.reset();
+
 			try {
 				logger.debug("Tracker sleeping");
 				TimeUnit.SECONDS.sleep(trackingPollingInterval);
@@ -59,6 +86,5 @@ public class Tracker extends Thread {
 				break;
 			}
 		}
-		
 	}
 }

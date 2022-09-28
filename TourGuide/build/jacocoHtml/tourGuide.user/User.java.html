@@ -50,53 +50,54 @@ public class User {
 	}
 	
 	public void setLatestLocationTimestamp(Date latestLocationTimestamp) {
-<span class="nc" id="L53">		this.latestLocationTimestamp = latestLocationTimestamp;</span>
-<span class="nc" id="L54">	}</span>
+<span class="fc" id="L53">		this.latestLocationTimestamp = latestLocationTimestamp;</span>
+<span class="fc" id="L54">	}</span>
 	
 	public Date getLatestLocationTimestamp() {
 <span class="nc" id="L57">		return latestLocationTimestamp;</span>
 	}
 	
 	public void addToVisitedLocations(VisitedLocation visitedLocation) {
-<span class="fc" id="L61">		visitedLocations.add(visitedLocation);</span>
-<span class="fc" id="L62">	}</span>
+<span class="fc" id="L61">		setLatestLocationTimestamp(visitedLocation.timeVisited);</span>
+<span class="fc" id="L62">		visitedLocations.add(visitedLocation);</span>
+<span class="fc" id="L63">	}</span>
 	
 	public List&lt;VisitedLocation&gt; getVisitedLocations() {
-<span class="fc" id="L65">		return visitedLocations;</span>
+<span class="fc" id="L66">		return visitedLocations;</span>
 	}
 	
 	public void clearVisitedLocations() {
-<span class="nc" id="L69">		visitedLocations.clear();</span>
-<span class="nc" id="L70">	}</span>
+<span class="nc" id="L70">		visitedLocations.clear();</span>
+<span class="nc" id="L71">	}</span>
 	
 	public void addUserReward(UserReward userReward) {
-<span class="pc bpc" id="L73" title="3 of 4 branches missed.">		if(userRewards.stream().filter(r -&gt; !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {</span>
-<span class="fc" id="L74">			userRewards.add(userReward);</span>
+<span class="pc bpc" id="L74" title="1 of 4 branches missed.">		if(userRewards.stream().filter(r -&gt; !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {</span>
+<span class="fc" id="L75">			userRewards.add(userReward);</span>
 		}
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L77">	}</span>
 	
 	public List&lt;UserReward&gt; getUserRewards() {
-<span class="fc" id="L79">		return userRewards;</span>
+<span class="fc" id="L80">		return userRewards;</span>
 	}
 	
 	public UserPreferences getUserPreferences() {
-<span class="nc" id="L83">		return userPreferences;</span>
+<span class="nc" id="L84">		return userPreferences;</span>
 	}
 	
 	public void setUserPreferences(UserPreferences userPreferences) {
-<span class="nc" id="L87">		this.userPreferences = userPreferences;</span>
-<span class="nc" id="L88">	}</span>
+<span class="nc" id="L88">		this.userPreferences = userPreferences;</span>
+<span class="nc" id="L89">	}</span>
 
 	public VisitedLocation getLastVisitedLocation() {
-<span class="fc" id="L91">		return visitedLocations.get(visitedLocations.size() - 1);</span>
+<span class="nc" id="L92">		return visitedLocations.get(visitedLocations.size() - 1);</span>
 	}
 	
 	public void setTripDeals(List&lt;Provider&gt; tripDeals) {
-<span class="nc" id="L95">		this.tripDeals = tripDeals;</span>
-<span class="nc" id="L96">	}</span>
+<span class="nc" id="L96">		this.tripDeals = tripDeals;</span>
+<span class="nc" id="L97">	}</span>
 	
 	public List&lt;Provider&gt; getTripDeals() {
-<span class="nc" id="L99">		return tripDeals;</span>
+<span class="nc" id="L100">		return tripDeals;</span>
 	}
 
 }

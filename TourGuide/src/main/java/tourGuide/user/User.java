@@ -58,6 +58,7 @@ public class User {
 	}
 	
 	public void addToVisitedLocations(VisitedLocation visitedLocation) {
+		setLatestLocationTimestamp(visitedLocation.timeVisited);
 		visitedLocations.add(visitedLocation);
 	}
 	
