@@ -1,0 +1,4 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôÞ®œ8¡¿µ¶¶0
+s
+java:S2159I"VRemove this call to "equals"; comparisons between unrelated types always return false.(¾“š†8¬¿µ¶¶0

@@ -30,7 +30,7 @@ public class User {
 	}
 	
 	public String getUserName() {
-<span class="nc" id="L33">		return userName;</span>
+<span class="fc" id="L33">		return userName;</span>
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {
@@ -70,10 +70,10 @@ public class User {
 <span class="nc" id="L70">	}</span>
 	
 	public void addUserReward(UserReward userReward) {
-<span class="nc bnc" id="L73" title="All 4 branches missed.">		if(userRewards.stream().filter(r -&gt; !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {</span>
-<span class="nc" id="L74">			userRewards.add(userReward);</span>
+<span class="pc bpc" id="L73" title="3 of 4 branches missed.">		if(userRewards.stream().filter(r -&gt; !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {</span>
+<span class="fc" id="L74">			userRewards.add(userReward);</span>
 		}
-<span class="nc" id="L76">	}</span>
+<span class="fc" id="L76">	}</span>
 	
 	public List&lt;UserReward&gt; getUserRewards() {
 <span class="fc" id="L79">		return userRewards;</span>
@@ -88,7 +88,7 @@ public class User {
 <span class="nc" id="L88">	}</span>
 
 	public VisitedLocation getLastVisitedLocation() {
-<span class="nc" id="L91">		return visitedLocations.get(visitedLocations.size() - 1);</span>
+<span class="fc" id="L91">		return visitedLocations.get(visitedLocations.size() - 1);</span>
 	}
 	
 	public void setTripDeals(List&lt;Provider&gt; tripDeals) {

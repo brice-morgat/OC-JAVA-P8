@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -22,7 +23,7 @@ import tourGuide.user.UserReward;
 public class TestRewardsService {
 
 	@Test
-	public void userGetRewards() {
+	public void userGetRewards() throws ExecutionException, InterruptedException {
 		GpsUtil gpsUtil = new GpsUtil();
 		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
 

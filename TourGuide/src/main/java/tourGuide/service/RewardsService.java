@@ -1,6 +1,9 @@
 package tourGuide.service;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.springframework.stereotype.Service;
 
@@ -22,7 +25,9 @@ public class RewardsService {
 	private int attractionProximityRange = 200;
 	private final GpsUtil gpsUtil;
 	private final RewardCentral rewardsCentral;
-	
+	private final ExecutorService executorService = Executors.newFixedThreadPool(1000);
+
+
 	public RewardsService(GpsUtil gpsUtil, RewardCentral rewardCentral) {
 		this.gpsUtil = gpsUtil;
 		this.rewardsCentral = rewardCentral;
@@ -36,19 +41,39 @@ public class RewardsService {
 		proximityBuffer = defaultProximityBuffer;
 	}
 	
+//	public void calculateRewards(User user) {
+//		List<VisitedLocation> userLocations = user.getVisitedLocations();
+//		List<Attraction> attractions = gpsUtil.getAttractions();
+//
+//		for(VisitedLocation visitedLocation : userLocations) {
+//			for(Attraction attraction : attractions) {
+//				if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
+//					if(nearAttraction(visitedLocation, attraction)) {
+//						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
+//					}
+//				}
+//			}
+//		}
+//	}
+
 	public void calculateRewards(User user) {
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<Attraction> attractions = gpsUtil.getAttractions();
-		
-		for(VisitedLocation visitedLocation : userLocations) {
-			for(Attraction attraction : attractions) {
-				if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
-					if(nearAttraction(visitedLocation, attraction)) {
-						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
+
+//		System.out.println("BONJOUR");
+		CompletableFuture.supplyAsync(gpsUtil::getAttractions).thenAccept(attractions ->  {
+			for(VisitedLocation visitedLocation : userLocations) {
+				for(Attraction attraction : attractions) {
+					if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
+						if(nearAttraction(visitedLocation, attraction)) {
+							CompletableFuture.supplyAsync(() -> getRewardPoints(attraction, user), executorService).thenAccept(rewardPoints -> {
+								UserReward userReward = new UserReward(visitedLocation, attraction, rewardPoints);
+								user.addUserReward(userReward);
+							});
+						}
 					}
 				}
 			}
-		}
+		});
 	}
 	
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
