@@ -1,0 +1,33 @@
+image: java:8-jdk
+stages: # List of stages for jobs, and their order of execution
+  - build
+  - test
+
+before_script:
+  - echo "Start CI"
+  - cd TourGuide
+  - pwd
+  - chmod 777 ./gradlew
+
+build: # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - pwd
+    - ./gradlew assemble
+    - echo "Compile complete."
+   
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/TourGuide/build/libs/*.jar
+    expire_in: 1 week
+
+tests:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  script:
+    - echo "Running unit tests..."
+    - ./gradlew check
+    - echo "Tests complete"
+
+after_script:
+  - echo "End CI"
