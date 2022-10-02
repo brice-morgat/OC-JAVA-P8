@@ -3,6 +3,7 @@ package tourGuide.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -82,7 +83,7 @@ public class RewardsService {
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
 		List<Attraction> attractions = gpsUtil.getAttractions();
 
-		ArrayList<CompletableFuture> futures = new ArrayList<>();
+		CopyOnWriteArrayList<CompletableFuture> futures = new CopyOnWriteArrayList<>();
 
 		for(VisitedLocation visitedLocation : userLocations) {
 			for (Attraction attr : attractions) {
