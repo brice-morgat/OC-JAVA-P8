@@ -71,7 +71,7 @@ public class TestRewardsService {
 		InternalTestHelper.setInternalUserNumber(1);
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
 
-		rewardsService.calculateRewardsReturn(tourGuideService.getAllUsers().get(0));
+		rewardsService.calculateRewards(tourGuideService.getAllUsers().get(0));
 
 		List<UserReward> userRewards = tourGuideService.getUserRewards(tourGuideService.getAllUsers().get(0));
 
