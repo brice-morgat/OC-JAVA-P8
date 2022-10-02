@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.TestRewardsService" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-02T21:13:14" hostname="LAPTOP-07K44296" time="1.252">
+<testsuite name="tourGuide.TestRewardsService" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-02T22:23:42" hostname="LAPTOP-07K44296" time="1.199">
   <properties/>
-  <testcase name="nearAllAttractions" classname="tourGuide.TestRewardsService" time="1.029"/>
-  <testcase name="userGetRewards" classname="tourGuide.TestRewardsService" time="0.206"/>
-  <testcase name="isWithinAttractionProximity" classname="tourGuide.TestRewardsService" time="0.017"/>
-  <system-out><![CDATA[2022-10-02 23:13:14.147  INFO 75568 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-02 23:13:14.147 DEBUG 75568 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-02 23:13:14.147 DEBUG 75568 --- [    Test worker] tourGuide.service.TourGuideService       : Created 1 internal test users.
-2022-10-02 23:13:14.147 DEBUG 75568 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-02 23:13:14.148 DEBUG 75568 --- [ool-13-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 1 users.
-2022-10-02 23:13:14.149  INFO 75568 --- [ool-13-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
-2022-10-02 23:13:14.149 DEBUG 75568 --- [ool-13-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-02 23:13:14.149 DEBUG 75568 --- [ool-13-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-02 23:13:15.175  INFO 75568 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-02 23:13:15.175 DEBUG 75568 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-02 23:13:15.175 DEBUG 75568 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-02 23:13:15.175 DEBUG 75568 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-02 23:13:15.176 DEBUG 75568 --- [ool-16-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-02 23:13:15.176 DEBUG 75568 --- [ool-16-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-02 23:13:15.176 DEBUG 75568 --- [ool-16-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+  <testcase name="nearAllAttractions" classname="tourGuide.TestRewardsService" time="1.199"/>
+  <system-out><![CDATA[00:23:42.258 [Test worker] INFO tourGuide.service.TourGuideService - TestMode enabled
+00:23:42.264 [Test worker] DEBUG tourGuide.service.TourGuideService - Initializing users
+00:23:42.328 [Test worker] DEBUG tourGuide.service.TourGuideService - Created 1 internal test users.
+00:23:42.328 [Test worker] DEBUG tourGuide.service.TourGuideService - Finished initializing users
+00:23:42.333 [pool-3-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 1 users.
+00:23:42.334 [pool-3-thread-1] INFO tourGuide.service.TourGuideService - Track Location for user internalUser0
+00:23:42.341 [pool-3-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+00:23:42.341 [pool-3-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Oct 03, 2022 12:23:42 AM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+INFO: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+]]></system-err>
 </testsuite>
