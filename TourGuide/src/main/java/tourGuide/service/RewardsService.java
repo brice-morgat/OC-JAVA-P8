@@ -52,31 +52,21 @@ public class RewardsService {
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
 		List<Attraction> attractions = gpsUtil.getAttractions();
 
-		ArrayList<CompletableFuture> futures = new ArrayList<>();
+//		ArrayList<CompletableFuture> futures = new ArrayList<>();
 
 		for(VisitedLocation visitedLocation : userLocations) {
 			for (Attraction attr : attractions) {
-				futures.add(
+
 						CompletableFuture.runAsync(()-> {
 							if(user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(attr.attractionName))) {
 								if(nearAttraction(visitedLocation, attr)) {
 									user.addUserReward( new UserReward(visitedLocation, attr,  rewardsCentral.getAttractionRewardPoints(attr.attractionId, user.getUserId())));
 								}
 							}
-						},executorService)
-				);
+						},executorService);
+
 			}
 		}
-
-		futures.forEach((n)-> {
-			try {
-				n.get();
-			} catch (InterruptedException e) {
-				logger.error("Calculate Rewards InterruptedException: " + e);
-			} catch (ExecutionException e) {
-				logger.error("Calculate Rewards ExecutionException: " + e);
-			}
-		});
 	}
 
 	public String calculateRewardsReturn(User user) {
