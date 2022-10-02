@@ -78,7 +78,7 @@ public class RewardsService {
 		});
 	}
 
-	public void calculateRewardsReturn(User user) {
+	public String calculateRewardsReturn(User user) {
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
 		List<Attraction> attractions = gpsUtil.getAttractions();
 
@@ -107,6 +107,8 @@ public class RewardsService {
 				logger.error("Calculate Rewards ExecutionException: " + e);
 			}
 		});
+
+		return user.getUserName();
 	}
 
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {

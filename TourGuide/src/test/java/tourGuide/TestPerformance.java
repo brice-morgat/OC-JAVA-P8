@@ -66,7 +66,7 @@ public class TestPerformance {
 	public void highVolumeTrackLocation() {
 		RewardsService rewardsService = new RewardsService(gpsUtil, rewardCentral);
 		// Users should be incremented up to 100,000, and test finishes within 15 minutes
-		InternalTestHelper.setInternalUserNumber(10000);
+		InternalTestHelper.setInternalUserNumber(1000);
 
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
 
