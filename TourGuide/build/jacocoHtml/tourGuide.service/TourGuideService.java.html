@@ -115,7 +115,7 @@ public class TourGuideService {
 <span class="fc" id="L115">				.thenApply(visitedLocation -&gt; {</span>
 <span class="fc" id="L116">					user.addToVisitedLocations(visitedLocation);</span>
 <span class="fc" id="L117">					rewardsService.calculateRewards(user);</span>
-<span class="fc" id="L118">					tracker.finalizeTrack(user);</span>
+//					tracker.finalizeTrack(user);
 <span class="fc" id="L119">					return visitedLocation;</span>
 				});
 	}

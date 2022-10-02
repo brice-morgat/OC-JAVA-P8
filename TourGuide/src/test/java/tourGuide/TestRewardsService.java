@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -15,6 +16,8 @@ import org.junit.Test;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 import rewardCentral.RewardCentral;
 import tourGuide.helper.InternalTestHelper;
 import tourGuide.service.RewardsService;
@@ -36,11 +39,13 @@ public class TestRewardsService {
 
 		InternalTestHelper.setInternalUserNumber(0);
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
-		
+
 		User user = new User(UUID.randomUUID(), "jon", "000", "jon@tourGuide.com");
-		Attraction attraction = gpsUtil.getAttractions().get(0);
+		Attraction attraction = gpsUtil.getAttractions().get(1);
 		user.addToVisitedLocations(new VisitedLocation(user.getUserId(), attraction, new Date()));
-		tourGuideService.trackUserLocation(user);
+		tourGuideService.addUser(user);
+		rewardsService.calculateRewards(user);
+
 		List<UserReward> userRewards = user.getUserRewards();
 		tourGuideService.tracker.stopTracking();
 		assertTrue(userRewards.size() == 1);
@@ -56,16 +61,18 @@ public class TestRewardsService {
 
 //	@Ignore // Needs fixed - can throw ConcurrentModificationException
 	@Test
-	public void nearAllAttractions() {
+	public void nearAllAttractions()  {
 		GpsUtil gpsUtil = new GpsUtil();
 		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
 		rewardsService.setProximityBuffer(Integer.MAX_VALUE);
 
 		InternalTestHelper.setInternalUserNumber(1);
 		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
-		
+
 		rewardsService.calculateRewards(tourGuideService.getAllUsers().get(0));
+
 		List<UserReward> userRewards = tourGuideService.getUserRewards(tourGuideService.getAllUsers().get(0));
+
 		tourGuideService.tracker.stopTracking();
 
 		assertEquals(gpsUtil.getAttractions().size(), userRewards.size());

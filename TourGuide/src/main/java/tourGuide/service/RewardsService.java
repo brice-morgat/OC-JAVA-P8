@@ -1,9 +1,12 @@
 package tourGuide.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,69 +46,38 @@ public class RewardsService {
 	public void setDefaultProximityBuffer() {
 		proximityBuffer = defaultProximityBuffer;
 	}
-	
-//	public void calculateRewards(User user) {
-//		List<VisitedLocation> userLocations = user.getVisitedLocations();
-//		List<Attraction> attractions = gpsUtil.getAttractions();
-//
-//		for(VisitedLocation visitedLocation : userLocations) {
-//			for(Attraction attraction : attractions) {
-//				if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
-//					if(nearAttraction(visitedLocation, attraction)) {
-//						user.addUserReward(new UserReward(visitedLocation, attraction, getRewardPoints(attraction, user)));
-//					}
-//				}
-//			}
-//		}
-//	}
-
-	private void submitRewardPoints(UserReward userReward, Attraction attraction, User user) {
-//		userReward.setRewardPoints(10);
-//		user.addUserReward(userReward);
-		CompletableFuture.supplyAsync(() -> {
-					return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
-				}, executorService)
-				.thenAccept(points -> {
-					userReward.setRewardPoints(points);
-					user.addUserReward(userReward);
-				});
-	}
-
-	public void calculateDistanceReward(User user, VisitedLocation visitedLocation, Attraction attraction) {
-		Double distance = getDistance(attraction, visitedLocation.location);
-		if(distance <= proximityBuffer) {
-			UserReward userReward = new UserReward(visitedLocation, attraction, distance.intValue());
-			submitRewardPoints(userReward, attraction, user);
-		}
-	}
 
 	public void calculateRewards(User user) {
-		List<Attraction> attractions = gpsUtil.getAttractions();
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
+		List<Attraction> attractions = gpsUtil.getAttractions();
+
+		ArrayList<CompletableFuture> futures = new ArrayList<>();
 
 		for(VisitedLocation visitedLocation : userLocations) {
-			for(Attraction attraction : attractions) {
-				if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
-					calculateDistanceReward(user, visitedLocation, attraction);
-				}
+			for (Attraction attr : attractions) {
+				futures.add(
+						CompletableFuture.runAsync(()-> {
+							if(user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(attr.attractionName))) {
+								if(nearAttraction(visitedLocation, attr)) {
+									user.addUserReward( new UserReward(visitedLocation, attr,  rewardsCentral.getAttractionRewardPoints(attr.attractionId, user.getUserId())));
+								}
+							}
+						},executorService)
+				);
 			}
 		}
 
-//		CompletableFuture.supplyAsync(gpsUtil::getAttractions).thenAccept(attractions ->  {
-//			for(VisitedLocation visitedLocation : userLocations) {
-//				for(Attraction attraction : attractions) {
-//					if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attraction.attractionName)).count() == 0) {
-//						if(nearAttraction(visitedLocation, attraction)) {
-//							int rewardPoints =  getRewardPoints(attraction, user);
-//							UserReward userReward = new UserReward(visitedLocation, attraction, rewardPoints);
-//							user.addUserReward(userReward);
-//						}
-//					}
-//				}
-//			}
-//		});
+		futures.forEach((n)-> {
+			try {
+				n.get();
+			} catch (InterruptedException e) {
+				logger.error("Calculate Rewards InterruptedException: " + e);
+			} catch (ExecutionException e) {
+				logger.error("Calculate Rewards ExecutionException: " + e);
+			}
+		});
 	}
-	
+
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
 		return getDistance(attraction, location) > attractionProximityRange ? false : true;
 	}

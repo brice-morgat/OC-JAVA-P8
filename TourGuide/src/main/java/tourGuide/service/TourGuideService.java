@@ -115,7 +115,7 @@ public class TourGuideService {
 				.thenApply(visitedLocation -> {
 					user.addToVisitedLocations(visitedLocation);
 					rewardsService.calculateRewards(user);
-					tracker.finalizeTrack(user);
+//					tracker.finalizeTrack(user);
 					return visitedLocation;
 				});
 	}
