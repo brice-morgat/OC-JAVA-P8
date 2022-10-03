@@ -79,39 +79,6 @@ public class RewardsService {
 		});
 	}
 
-	public String calculateRewardsReturn(User user) {
-		List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<Attraction> attractions = gpsUtil.getAttractions();
-
-		CopyOnWriteArrayList<CompletableFuture> futures = new CopyOnWriteArrayList<>();
-
-		for(VisitedLocation visitedLocation : userLocations) {
-			for (Attraction attr : attractions) {
-				futures.add(
-						CompletableFuture.runAsync(()-> {
-							if(user.getUserRewards().stream().filter(r -> r.attraction.attractionName.equals(attr.attractionName)).count() == 0) {
-								if(nearAttraction(visitedLocation, attr)) {
-									user.addUserReward( new UserReward(visitedLocation, attr,  rewardsCentral.getAttractionRewardPoints(attr.attractionId, user.getUserId())));
-								}
-							}
-						},executorService)
-				);
-			}
-		}
-
-		futures.forEach((n)-> {
-			try {
-				n.get();
-			} catch (InterruptedException e) {
-				logger.error("Calculate Rewards InterruptedException: " + e);
-			} catch (ExecutionException e) {
-				logger.error("Calculate Rewards ExecutionException: " + e);
-			}
-		});
-
-		return user.getUserName();
-	}
-
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
 		return getDistance(attraction, location) > attractionProximityRange ? false : true;
 	}
