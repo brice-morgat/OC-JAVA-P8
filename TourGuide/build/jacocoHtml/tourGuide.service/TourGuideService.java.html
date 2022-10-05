@@ -77,13 +77,13 @@ public class TourGuideService {
 	}
 
 	public User getUserById(UUID userId) {
-<span class="nc" id="L80">		User result = null;</span>
-<span class="nc bnc" id="L81" title="All 2 branches missed.">		for (User user : getAllUsers()) {</span>
-<span class="nc bnc" id="L82" title="All 2 branches missed.">			if (user.getUserId() == userId) {</span>
-<span class="nc" id="L83">				result =  user;</span>
+<span class="fc" id="L80">		User result = null;</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">		for (User user : getAllUsers()) {</span>
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">			if (user.getUserId() == userId) {</span>
+<span class="fc" id="L83">				result =  user;</span>
 			}
-<span class="nc" id="L85">		}</span>
-<span class="nc" id="L86">		return result;</span>
+<span class="fc" id="L85">		}</span>
+<span class="fc" id="L86">		return result;</span>
 	}
 	
 	public List&lt;User&gt; getAllUsers() {
@@ -105,8 +105,8 @@ public class TourGuideService {
 	}
 
 	public UserPreferences updateUserPreferences(User user, UserPreferences userPreferences) {
-<span class="nc" id="L108">		user.setUserPreferences(userPreferences);</span>
-<span class="nc" id="L109">		return user.getUserPreferences();</span>
+<span class="fc" id="L108">		user.setUserPreferences(userPreferences);</span>
+<span class="fc" id="L109">		return user.getUserPreferences();</span>
 	}
 
 	public CompletableFuture&lt;VisitedLocation&gt; trackUserLocation(User user) {
@@ -133,29 +133,29 @@ public class TourGuideService {
 	}
 
 	public List&lt;NearByAttractionDTO&gt; getNearByAttractionsList(VisitedLocation visitedLocation) {
-<span class="nc" id="L136">		List&lt;Attraction&gt; nearByAttractions = getNearByAttractions(visitedLocation);</span>
-<span class="nc" id="L137">		List&lt;NearByAttractionDTO&gt; nearByAttractionDTOList = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L138" title="All 2 branches missed.">		for (Attraction attraction: nearByAttractions) {</span>
-<span class="nc" id="L139">			NearByAttractionDTO nearByAttractionDTO = NearByAttractionDTO.builder()</span>
-<span class="nc" id="L140">					.attractionName(attraction.attractionName)</span>
-<span class="nc" id="L141">					.attractionLocation(&quot;Latitude : &quot; + attraction.latitude + &quot;, Longitude: &quot; + attraction.longitude)</span>
-<span class="nc" id="L142">					.distance(rewardsService.getDistance(visitedLocation.location, new Location(attraction.latitude, attraction.longitude)))</span>
-<span class="nc" id="L143">					.rewardPoints(rewardsService.getRewardPoints(attraction, getUserById(visitedLocation.userId)))</span>
-<span class="nc" id="L144">					.build();</span>
-<span class="nc" id="L145">			nearByAttractionDTOList.add(nearByAttractionDTO);</span>
-<span class="nc" id="L146">		}</span>
-<span class="nc" id="L147">		return nearByAttractionDTOList;</span>
+<span class="fc" id="L136">		List&lt;Attraction&gt; nearByAttractions = getNearByAttractions(visitedLocation);</span>
+<span class="fc" id="L137">		List&lt;NearByAttractionDTO&gt; nearByAttractionDTOList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">		for (Attraction attraction: nearByAttractions) {</span>
+<span class="fc" id="L139">			NearByAttractionDTO nearByAttractionDTO = NearByAttractionDTO.builder()</span>
+<span class="fc" id="L140">					.attractionName(attraction.attractionName)</span>
+<span class="fc" id="L141">					.attractionLocation(&quot;Latitude : &quot; + attraction.latitude + &quot;, Longitude: &quot; + attraction.longitude)</span>
+<span class="fc" id="L142">					.distance(rewardsService.getDistance(visitedLocation.location, new Location(attraction.latitude, attraction.longitude)))</span>
+<span class="fc" id="L143">					.rewardPoints(rewardsService.getRewardPoints(attraction, getUserById(visitedLocation.userId)))</span>
+<span class="fc" id="L144">					.build();</span>
+<span class="fc" id="L145">			nearByAttractionDTOList.add(nearByAttractionDTO);</span>
+<span class="fc" id="L146">		}</span>
+<span class="fc" id="L147">		return nearByAttractionDTOList;</span>
 	}
 
 	public Map&lt;String, Location&gt; getAllCurrentLocation() {
-<span class="nc" id="L151">		List&lt;User&gt; allUser = getAllUsers();</span>
-<span class="nc" id="L152">		Map&lt;String, Location&gt; allLocation = new HashMap&lt;&gt;();</span>
-<span class="nc bnc" id="L153" title="All 2 branches missed.">		for (User user : allUser) {</span>
-<span class="nc" id="L154">			String id = user.getUserId().toString();</span>
-<span class="nc" id="L155">			Location location = user.getLastVisitedLocation().location;</span>
-<span class="nc" id="L156">			allLocation.put(id, location);</span>
-<span class="nc" id="L157">		}</span>
-<span class="nc" id="L158">		return allLocation;</span>
+<span class="fc" id="L151">		List&lt;User&gt; allUser = getAllUsers();</span>
+<span class="fc" id="L152">		Map&lt;String, Location&gt; allLocation = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">		for (User user : allUser) {</span>
+<span class="fc" id="L154">			String id = user.getUserId().toString();</span>
+<span class="fc" id="L155">			Location location = user.getLastVisitedLocation().location;</span>
+<span class="fc" id="L156">			allLocation.put(id, location);</span>
+<span class="fc" id="L157">		}</span>
+<span class="fc" id="L158">		return allLocation;</span>
 	}
 	
 	private void addShutDownHook() {

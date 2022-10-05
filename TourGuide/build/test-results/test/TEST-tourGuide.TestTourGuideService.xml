@@ -1,58 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tourGuide.TestTourGuideService" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-10-03T07:59:13" hostname="LAPTOP-BLPUO737" time="0.403">
+<testsuite name="tourGuide.TestTourGuideService" tests="9" skipped="0" failures="0" errors="0" timestamp="2022-10-05T15:54:55" hostname="LAPTOP-07K44296" time="2.733">
   <properties/>
-  <testcase name="getUserLocation" classname="tourGuide.TestTourGuideService" time="0.116"/>
-  <testcase name="addUser" classname="tourGuide.TestTourGuideService" time="0.002"/>
-  <testcase name="getTripDeals" classname="tourGuide.TestTourGuideService" time="0.034"/>
+  <testcase name="getUserLocation" classname="tourGuide.TestTourGuideService" time="0.095"/>
+  <testcase name="addUser" classname="tourGuide.TestTourGuideService" time="0.001"/>
+  <testcase name="getNearByAttractionsList" classname="tourGuide.TestTourGuideService" time="2.427"/>
+  <testcase name="getTripDeals" classname="tourGuide.TestTourGuideService" time="0.04"/>
   <testcase name="getAllUsers" classname="tourGuide.TestTourGuideService" time="0.003"/>
-  <testcase name="trackUser" classname="tourGuide.TestTourGuideService" time="0.126"/>
-  <testcase name="getNearbyAttractions" classname="tourGuide.TestTourGuideService" time="0.122"/>
-  <system-out><![CDATA[2022-10-03 09:59:13.838  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-03 09:59:13.838 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-03 09:59:13.838 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-03 09:59:13.838 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-03 09:59:13.839  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Track Location for user jon
-2022-10-03 09:59:13.839 DEBUG 38196 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-03 09:59:13.839 DEBUG 38196 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-03 09:59:13.839 DEBUG 38196 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-03 09:59:13.954  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-03 09:59:13.954 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-03 09:59:13.954 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-03 09:59:13.954 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-03 09:59:13.956 DEBUG 38196 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-03 09:59:13.956 DEBUG 38196 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-03 09:59:13.956 DEBUG 38196 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-03 09:59:13.956  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-03 09:59:13.956 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-03 09:59:13.956 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-03 09:59:13.956 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-03 09:59:13.957 DEBUG 38196 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-03 09:59:13.958 DEBUG 38196 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-03 09:59:13.958 DEBUG 38196 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-03 09:59:13.991  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-03 09:59:13.991 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-03 09:59:13.991 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-03 09:59:13.991 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-03 09:59:13.993 DEBUG 38196 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-03 09:59:13.993 DEBUG 38196 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-03 09:59:13.993 DEBUG 38196 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-03 09:59:13.993  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-03 09:59:13.993 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-03 09:59:13.993 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-03 09:59:13.993 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-03 09:59:13.994  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Track Location for user jon
-2022-10-03 09:59:14.031 DEBUG 38196 --- [ool-32-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-03 09:59:14.031 DEBUG 38196 --- [ool-32-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-03 09:59:14.031 DEBUG 38196 --- [ool-32-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-03 09:59:14.119  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-03 09:59:14.119 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-03 09:59:14.119 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
-2022-10-03 09:59:14.119 DEBUG 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-03 09:59:14.120  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : Track Location for user jon
-2022-10-03 09:59:14.120 DEBUG 38196 --- [ool-35-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
-2022-10-03 09:59:14.120 DEBUG 38196 --- [ool-35-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-03 09:59:14.120 DEBUG 38196 --- [ool-35-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-03 09:59:14.241  INFO 38196 --- [    Test worker] tourGuide.service.TourGuideService       : [gpsUtil.location.Attraction@65ee00c3, gpsUtil.location.Attraction@1e1216ce, gpsUtil.location.Attraction@3640f8aa, gpsUtil.location.Attraction@1146574c, gpsUtil.location.Attraction@a8016157, gpsUtil.location.Attraction@63e13d77, gpsUtil.location.Attraction@17dc5ded, gpsUtil.location.Attraction@48274673, gpsUtil.location.Attraction@524acf00, gpsUtil.location.Attraction@8c2cd6ba, gpsUtil.location.Attraction@1d6844bd, gpsUtil.location.Attraction@404da2be, gpsUtil.location.Attraction@8396df9c, gpsUtil.location.Attraction@87013bac, gpsUtil.location.Attraction@4872c258, gpsUtil.location.Attraction@1811fb57, gpsUtil.location.Attraction@7bc1f5b, gpsUtil.location.Attraction@bfe9380a, gpsUtil.location.Attraction@c7fbf8ab, gpsUtil.location.Attraction@325984cc, gpsUtil.location.Attraction@33e5590, gpsUtil.location.Attraction@591d02c0, gpsUtil.location.Attraction@1a4c61e5, gpsUtil.location.Attraction@8b140f99, gpsUtil.location.Attraction@9a46237, gpsUtil.location.Attraction@f3747c6a]
+  <testcase name="updateUserPreferences" classname="tourGuide.TestTourGuideService" time="0.003"/>
+  <testcase name="trackUser" classname="tourGuide.TestTourGuideService" time="0.081"/>
+  <testcase name="getNearbyAttractions" classname="tourGuide.TestTourGuideService" time="0.076"/>
+  <testcase name="getAllCurrentLocation" classname="tourGuide.TestTourGuideService" time="0.004"/>
+  <system-out><![CDATA[2022-10-05 17:54:55.918  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:55.918 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:55.918 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
+2022-10-05 17:54:55.918 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:55.919  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Track Location for user jon
+2022-10-05 17:54:55.919 DEBUG 110320 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
+2022-10-05 17:54:55.919 DEBUG 110320 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:55.919 DEBUG 110320 --- [ool-20-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:56.016  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:56.016 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:56.016 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
+2022-10-05 17:54:56.016 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:56.016 DEBUG 110320 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 2 users.
+2022-10-05 17:54:56.016  INFO 110320 --- [ool-23-thread-1] tourGuide.service.TourGuideService       : Track Location for user jon
+2022-10-05 17:54:56.016  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:56.016 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:56.017  INFO 110320 --- [ool-23-thread-1] tourGuide.service.TourGuideService       : Track Location for user jon2
+2022-10-05 17:54:56.017 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 1 internal test users.
+2022-10-05 17:54:56.017 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:56.017 DEBUG 110320 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:56.017 DEBUG 110320 --- [ool-23-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:56.019 DEBUG 110320 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 1 users.
+2022-10-05 17:54:56.019  INFO 110320 --- [ool-26-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
+2022-10-05 17:54:56.020 DEBUG 110320 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:56.020 DEBUG 110320 --- [ool-26-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:56.037  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : [gpsUtil.location.Attraction@3830dac3, gpsUtil.location.Attraction@306b6bff, gpsUtil.location.Attraction@1e6d24f9, gpsUtil.location.Attraction@4818f168, gpsUtil.location.Attraction@76c0dc6a, gpsUtil.location.Attraction@1d9f75de, gpsUtil.location.Attraction@6aa2d078, gpsUtil.location.Attraction@65befff5, gpsUtil.location.Attraction@15ed4ca4, gpsUtil.location.Attraction@733aea42, gpsUtil.location.Attraction@f67d54d, gpsUtil.location.Attraction@1d34c203, gpsUtil.location.Attraction@6243256d, gpsUtil.location.Attraction@468fab9d, gpsUtil.location.Attraction@7773d3bc, gpsUtil.location.Attraction@4cec238b, gpsUtil.location.Attraction@377f1f36, gpsUtil.location.Attraction@c978907, gpsUtil.location.Attraction@6590551a, gpsUtil.location.Attraction@48cdc258, gpsUtil.location.Attraction@784e2d8, gpsUtil.location.Attraction@37eb9c9e, gpsUtil.location.Attraction@50b427fc, gpsUtil.location.Attraction@764df0b0, gpsUtil.location.Attraction@567f4e83, gpsUtil.location.Attraction@3d1b37be]
+2022-10-05 17:54:58.443  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:58.443 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:58.443 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
+2022-10-05 17:54:58.443 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:58.444 DEBUG 110320 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
+2022-10-05 17:54:58.444 DEBUG 110320 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:58.444 DEBUG 110320 --- [ool-29-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:58.484  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:58.487 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:58.487 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
+2022-10-05 17:54:58.487 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:58.487 DEBUG 110320 --- [ool-32-thread-1] tourGuide.tracker.Tracker                : Shutting down tracker
+2022-10-05 17:54:58.488  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:58.488 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:58.488 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 1 internal test users.
+2022-10-05 17:54:58.490 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:58.491 DEBUG 110320 --- [ool-35-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 1 users.
+2022-10-05 17:54:58.491  INFO 110320 --- [ool-35-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
+2022-10-05 17:54:58.491  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:58.491 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:58.491 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
+2022-10-05 17:54:58.491 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:58.491 DEBUG 110320 --- [ool-35-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:58.491 DEBUG 110320 --- [ool-35-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:58.491  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Track Location for user jon
+2022-10-05 17:54:58.491 DEBUG 110320 --- [ool-38-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
+2022-10-05 17:54:58.491 DEBUG 110320 --- [ool-38-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:58.491 DEBUG 110320 --- [ool-38-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:58.572  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:58.575 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:58.575 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 0 internal test users.
+2022-10-05 17:54:58.575 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-05 17:54:58.575  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Track Location for user jon
+2022-10-05 17:54:58.575 DEBUG 110320 --- [ool-41-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 0 users.
+2022-10-05 17:54:58.575 DEBUG 110320 --- [ool-41-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-05 17:54:58.575 DEBUG 110320 --- [ool-41-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-05 17:54:58.648  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : [gpsUtil.location.Attraction@7231ca82, gpsUtil.location.Attraction@651d7f18, gpsUtil.location.Attraction@36a7f910, gpsUtil.location.Attraction@66946b86, gpsUtil.location.Attraction@1a8dd80c, gpsUtil.location.Attraction@14e681fa, gpsUtil.location.Attraction@1d80850f, gpsUtil.location.Attraction@588d0562, gpsUtil.location.Attraction@2cb4fbc7, gpsUtil.location.Attraction@cfd46fa, gpsUtil.location.Attraction@15cc0297, gpsUtil.location.Attraction@255ab359, gpsUtil.location.Attraction@2ebb1ef6, gpsUtil.location.Attraction@4817574d, gpsUtil.location.Attraction@3dba2c62, gpsUtil.location.Attraction@4d8a80f7, gpsUtil.location.Attraction@3bb06b1e, gpsUtil.location.Attraction@496ffe1a, gpsUtil.location.Attraction@25da1269, gpsUtil.location.Attraction@3c4ea31d, gpsUtil.location.Attraction@41ed711, gpsUtil.location.Attraction@32b776a6, gpsUtil.location.Attraction@470b73c3, gpsUtil.location.Attraction@e146674, gpsUtil.location.Attraction@7cc09ef8, gpsUtil.location.Attraction@75cbd580]
+2022-10-05 17:54:58.651  INFO 110320 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-05 17:54:58.651 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-05 17:54:58.652 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Created 1 internal test users.
+2022-10-05 17:54:58.652 DEBUG 110320 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

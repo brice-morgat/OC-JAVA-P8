@@ -3,8 +3,8 @@ package tourGuide.user;
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 
+import lombok.Builder;
 import org.javamoney.moneta.Money;
-
 
 public class UserPreferences {
 	

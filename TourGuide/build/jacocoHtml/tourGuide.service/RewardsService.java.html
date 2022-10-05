@@ -49,10 +49,10 @@ public class RewardsService {
 <span class="nc" id="L49">	}</span>
 
 	public void calculateRewards(User user) {
-<span class="fc" id="L52">		List&lt;VisitedLocation&gt; userLocations = user.getVisitedLocations();</span>
+<span class="fc" id="L52">		CopyOnWriteArrayList&lt;VisitedLocation&gt; userLocations = new CopyOnWriteArrayList&lt;&gt;(user.getVisitedLocations());</span>
 <span class="fc" id="L53">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
 
-<span class="fc" id="L55">		CopyOnWriteArrayList&lt;CompletableFuture&gt; futures = new CopyOnWriteArrayList&lt;&gt;();</span>
+<span class="fc" id="L55">		CopyOnWriteArrayList&lt;CompletableFuture&gt; futures = new CopyOnWriteArrayList&lt;CompletableFuture&gt;();</span>
 
 <span class="fc bfc" id="L57" title="All 2 branches covered.">		for(VisitedLocation visitedLocation : userLocations) {</span>
 <span class="fc bfc" id="L58" title="All 2 branches covered.">			for (Attraction attr : attractions) {</span>
@@ -73,70 +73,39 @@ public class RewardsService {
 <span class="fc" id="L73">				n.get();</span>
 <span class="nc" id="L74">			} catch (InterruptedException e) {</span>
 <span class="nc" id="L75">				logger.error(&quot;Calculate Rewards InterruptedException: &quot; + e);</span>
-<span class="fc" id="L76">			} catch (ExecutionException e) {</span>
-<span class="fc" id="L77">				logger.error(&quot;Calculate Rewards ExecutionException: &quot; + e);</span>
-<span class="pc" id="L78">			}</span>
-<span class="fc" id="L79">		});</span>
-<span class="fc" id="L80">	}</span>
-
-	public String calculateRewardsReturn(User user) {
-<span class="nc" id="L83">		List&lt;VisitedLocation&gt; userLocations = user.getVisitedLocations();</span>
-<span class="nc" id="L84">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
-
-<span class="nc" id="L86">		CopyOnWriteArrayList&lt;CompletableFuture&gt; futures = new CopyOnWriteArrayList&lt;&gt;();</span>
-
-<span class="nc bnc" id="L88" title="All 2 branches missed.">		for(VisitedLocation visitedLocation : userLocations) {</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">			for (Attraction attr : attractions) {</span>
-<span class="nc" id="L90">				futures.add(</span>
-<span class="nc" id="L91">						CompletableFuture.runAsync(()-&gt; {</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">							if(user.getUserRewards().stream().filter(r -&gt; r.attraction.attractionName.equals(attr.attractionName)).count() == 0) {</span>
-<span class="nc bnc" id="L93" title="All 2 branches missed.">								if(nearAttraction(visitedLocation, attr)) {</span>
-<span class="nc" id="L94">									user.addUserReward( new UserReward(visitedLocation, attr,  rewardsCentral.getAttractionRewardPoints(attr.attractionId, user.getUserId())));</span>
-								}
-							}
-<span class="nc" id="L97">						},executorService)</span>
-				);
-<span class="nc" id="L99">			}</span>
-<span class="nc" id="L100">		}</span>
-
-<span class="nc" id="L102">		futures.forEach((n)-&gt; {</span>
-			try {
-<span class="nc" id="L104">				n.get();</span>
-<span class="nc" id="L105">			} catch (InterruptedException e) {</span>
-<span class="nc" id="L106">				logger.error(&quot;Calculate Rewards InterruptedException: &quot; + e);</span>
-<span class="nc" id="L107">			} catch (ExecutionException e) {</span>
-<span class="nc" id="L108">				logger.error(&quot;Calculate Rewards ExecutionException: &quot; + e);</span>
-<span class="nc" id="L109">			}</span>
-<span class="nc" id="L110">		});</span>
-
-<span class="nc" id="L112">		return user.getUserName();</span>
-	}
+<span class="nc" id="L76">			} catch (ExecutionException e) {</span>
+<span class="nc" id="L77">				logger.error(&quot;Calculate Rewards ExecutionException: &quot; + e);</span>
+			} finally {
+<span class="fc" id="L79">				futures.remove(n);</span>
+			}
+<span class="fc" id="L81">		});</span>
+<span class="fc" id="L82">	}</span>
 
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
-<span class="pc bpc" id="L116" title="1 of 2 branches missed.">		return getDistance(attraction, location) &gt; attractionProximityRange ? false : true;</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">		return getDistance(attraction, location) &gt; attractionProximityRange ? false : true;</span>
 	}
 	
 	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-<span class="fc bfc" id="L120" title="All 2 branches covered.">		return getDistance(attraction, visitedLocation.location) &gt;= proximityBuffer ? false : true;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">		return getDistance(attraction, visitedLocation.location) &gt;= proximityBuffer ? false : true;</span>
 	}
 	
 	public int getRewardPoints(Attraction attraction, User user) {
 //		logger.info(&quot;Get rewards points for user name : {} and attraction name &quot;, user.getUserName());
-<span class="nc" id="L125">		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());</span>
+<span class="fc" id="L94">		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());</span>
 	}
 	
 	public double getDistance(Location loc1, Location loc2) {
-<span class="fc" id="L129">        double lat1 = Math.toRadians(loc1.latitude);</span>
-<span class="fc" id="L130">        double lon1 = Math.toRadians(loc1.longitude);</span>
-<span class="fc" id="L131">        double lat2 = Math.toRadians(loc2.latitude);</span>
-<span class="fc" id="L132">        double lon2 = Math.toRadians(loc2.longitude);</span>
+<span class="fc" id="L98">        double lat1 = Math.toRadians(loc1.latitude);</span>
+<span class="fc" id="L99">        double lon1 = Math.toRadians(loc1.longitude);</span>
+<span class="fc" id="L100">        double lat2 = Math.toRadians(loc2.latitude);</span>
+<span class="fc" id="L101">        double lon2 = Math.toRadians(loc2.longitude);</span>
 
-<span class="fc" id="L134">        double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)</span>
-<span class="fc" id="L135">                               + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));</span>
+<span class="fc" id="L103">        double angle = Math.acos(Math.sin(lat1) * Math.sin(lat2)</span>
+<span class="fc" id="L104">                               + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));</span>
 
-<span class="fc" id="L137">        double nauticalMiles = 60 * Math.toDegrees(angle);</span>
-<span class="fc" id="L138">        double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;</span>
-<span class="fc" id="L139">        return statuteMiles;</span>
+<span class="fc" id="L106">        double nauticalMiles = 60 * Math.toDegrees(angle);</span>
+<span class="fc" id="L107">        double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;</span>
+<span class="fc" id="L108">        return statuteMiles;</span>
 	}
 
 }

@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
+import org.javamoney.moneta.Money;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -20,6 +21,7 @@ import tourGuide.helper.InternalTestHelper;
 import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
+import tourGuide.user.UserPreferences;
 import tripPricer.Provider;
 
 public class TestTourGuideService {
@@ -131,5 +133,46 @@ public class TestTourGuideService {
 		tourGuideService.tracker.stopTracking();
 		
 		assertEquals(5, providers.size());
+	}
+
+	@Test
+	public void updateUserPreferences() {
+		GpsUtil gpsUtil = new GpsUtil();
+		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+		InternalTestHelper.setInternalUserNumber(1);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+
+		User user = tourGuideService.getAllUsers().get(0);
+
+		UserPreferences userPreferences =  new UserPreferences();
+
+		userPreferences.setHighPricePoint(Money.of(120, "EUR"));
+		userPreferences.setAttractionProximity(500);
+		userPreferences.setLowerPricePoint(Money.of(0, "EUR"));
+		userPreferences.setNumberOfAdults(1);
+		userPreferences.setTicketQuantity(1);
+		userPreferences.setTripDuration(10);
+
+		assertEquals(userPreferences, tourGuideService.updateUserPreferences(user, userPreferences));
+	}
+
+	@Test
+	public void getAllCurrentLocation() {
+		GpsUtil gpsUtil = new GpsUtil();
+		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+		InternalTestHelper.setInternalUserNumber(1);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+
+		assertEquals(1, tourGuideService.getAllCurrentLocation().size());
+	}
+
+	@Test
+	public void getNearByAttractionsList() {
+		GpsUtil gpsUtil = new GpsUtil();
+		RewardsService rewardsService = new RewardsService(gpsUtil, new RewardCentral());
+		InternalTestHelper.setInternalUserNumber(1);
+		TourGuideService tourGuideService = new TourGuideService(gpsUtil, rewardsService);
+
+		assertEquals(5, tourGuideService.getNearByAttractionsList(tourGuideService.getAllUsers().get(0).getLastVisitedLocation()).size());
 	}
 }
