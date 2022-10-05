@@ -75,6 +75,8 @@ public class RewardsService {
 				logger.error("Calculate Rewards InterruptedException: " + e);
 			} catch (ExecutionException e) {
 				logger.error("Calculate Rewards ExecutionException: " + e);
+			} finally {
+				futures.remove(n);
 			}
 		});
 	}
