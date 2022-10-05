@@ -52,7 +52,7 @@ public class RewardsService {
 		List<VisitedLocation> userLocations = user.getVisitedLocations();
 		List<Attraction> attractions = gpsUtil.getAttractions();
 
-		CopyOnWriteArrayList<CompletableFuture> futures = new CopyOnWriteArrayList<>();
+		CopyOnWriteArrayList<CompletableFuture> futures = new CopyOnWriteArrayList<CompletableFuture>();
 
 		for(VisitedLocation visitedLocation : userLocations) {
 			for (Attraction attr : attractions) {
