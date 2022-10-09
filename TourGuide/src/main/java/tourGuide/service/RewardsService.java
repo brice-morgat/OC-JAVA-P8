@@ -48,6 +48,11 @@ public class RewardsService {
 		proximityBuffer = defaultProximityBuffer;
 	}
 
+	/**
+	 * For each user location, check if the user is near an attraction. If so, add the reward to the user's reward list
+	 *
+	 * @param user The user object that we are calculating rewards for.
+	 */
 	public void calculateRewards(User user) {
 		CopyOnWriteArrayList<VisitedLocation> userLocations = new CopyOnWriteArrayList<>(user.getVisitedLocations());
 		List<Attraction> attractions = gpsUtil.getAttractions();
@@ -81,14 +86,37 @@ public class RewardsService {
 		});
 	}
 
+	/**
+	 * If the distance between the attraction and the location is greater than the attraction proximity range, return false,
+	 * otherwise return true.
+	 *
+	 * @param attraction The attraction object that we want to check if it's within the proximity range.
+	 * @param location The location of the user
+	 * @return A boolean value.
+	 */
 	public boolean isWithinAttractionProximity(Attraction attraction, Location location) {
 		return getDistance(attraction, location) > attractionProximityRange ? false : true;
 	}
 	
+	/**
+	 * > If the distance between the attraction and the visited location is greater than the proximity buffer, return false,
+	 * otherwise return true
+	 *
+	 * @param visitedLocation The location that the user is currently at.
+	 * @param attraction The attraction that we're checking to see if we're near.
+	 * @return A boolean value.
+	 */
 	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
 		return getDistance(attraction, visitedLocation.location) >= proximityBuffer ? false : true;
 	}
 	
+	/**
+	 * > Get rewards points for user name : {user.getUserName()} and attraction name {attraction.attractionId}
+	 *
+	 * @param attraction The attraction object that the user is visiting.
+	 * @param user The user object that is passed in from the calling method.
+	 * @return The number of reward points the user has for the attraction.
+	 */
 	public int getRewardPoints(Attraction attraction, User user) {
 //		logger.info("Get rewards points for user name : {} and attraction name ", user.getUserName());
 		return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());

@@ -61,10 +61,24 @@ public class TourGuideService {
 		addShutDownHook();
 	}
 	
+	/**
+	 * Get all the rewards for a user.
+	 *
+	 * @param user The user object that is being passed in from the controller.
+	 * @return A list of UserReward objects.
+	 */
 	public List<UserReward> getUserRewards(User user) {
 		return user.getUserRewards();
 	}
 	
+	/**
+	 * "If the user has visited locations, return the last one, otherwise track the user's location and return it."
+	 *
+	 * The `trackUserLocation` function is asynchronous, so we need to use the `get` method to wait for the result
+	 *
+	 * @param user The user object that we want to track.
+	 * @return A VisitedLocation object.
+	 */
 	public VisitedLocation getUserLocation(User user) throws ExecutionException, InterruptedException {
 		VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ?
 			user.getLastVisitedLocation() :
@@ -76,6 +90,13 @@ public class TourGuideService {
 		return internalUserMap.get(userName);
 	}
 
+
+	/**
+	 * Get the user with the given userId from the list of all users.
+	 *
+	 * @param userId The userId of the user you want to get.
+	 * @return A User object
+	 */
 	public User getUserById(UUID userId) {
 		User result = null;
 		for (User user : getAllUsers()) {
@@ -86,16 +107,34 @@ public class TourGuideService {
 		return result;
 	}
 	
+	/**
+	 * Return a list of all users in the system.
+	 *
+	 * @return A list of all the users in the internalUserMap.
+	 */
 	public List<User> getAllUsers() {
 		return internalUserMap.values().stream().collect(Collectors.toList());
 	}
 	
+
+	/**
+	 * If the user doesn't exist, add it to the map.
+	 *
+	 * @param user The user object to be added to the internal map.
+	 */
 	public void addUser(User user) {
 		if(!internalUserMap.containsKey(user.getUserName())) {
 			internalUserMap.put(user.getUserName(), user);
 		}
 	}
 	
+	/**
+	 * > The function gets the user's trip deals by calling the tripPricer's getPrice function with the user's id, number of
+	 * adults, number of children, trip duration, and cumulatative reward points
+	 *
+	 * @param user The user object that contains the user's preferences and rewards.
+	 * @return A list of providers.
+	 */
 	public List<Provider> getTripDeals(User user) {
 		int cumulatativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
 		List<Provider> providers = tripPricer.getPrice(tripPricerApiKey, user.getUserId(), user.getUserPreferences().getNumberOfAdults(), 
@@ -104,22 +143,40 @@ public class TourGuideService {
 		return providers;
 	}
 
+	/**
+	 * Update the user preferences for the given user.
+	 *
+	 * @param user The user object that is being updated.
+	 * @param userPreferences The user preferences object that you want to update.
+	 * @return The userPreferences object that was just updated.
+	 */
 	public UserPreferences updateUserPreferences(User user, UserPreferences userPreferences) {
 		user.setUserPreferences(userPreferences);
 		return user.getUserPreferences();
 	}
 
+	/**
+	 * > Track Location for user
+	 *
+	 * @param user The user object that we want to track.
+	 * @return CompletableFuture<VisitedLocation>
+	 */
 	public CompletableFuture<VisitedLocation> trackUserLocation(User user) {
 		logger.info("Track Location for user {}", user.getUserName());
 		return CompletableFuture.supplyAsync(() -> gpsUtil.getUserLocation(user.getUserId()), executorService)
 				.thenApply(visitedLocation -> {
 					user.addToVisitedLocations(visitedLocation);
 					rewardsService.calculateRewards(user);
-//					tracker.finalizeTrack(user);
 					return visitedLocation;
 				});
 	}
 
+	/**
+	 * > Get the top 5 attractions that are closest to the given location
+	 *
+	 * @param visitedLocation The location that the user has visited.
+	 * @return A list of attractions that are nearby the visited location.
+	 */
 	public List<Attraction> getNearByAttractions(VisitedLocation visitedLocation) {
 		List<Attraction> nearbyAttractions = new ArrayList<>();
 		List<Attraction> attractions = gpsUtil.getAttractions();
@@ -132,6 +189,14 @@ public class TourGuideService {
 		return nearbyAttractions;
 	}
 
+	/**
+	 * It gets the list of attractions near the visited location, and then for each attraction, it creates a
+	 * NearByAttractionDTO object with the attraction name, attraction location, distance from the visited location, and the
+	 * reward points for the attraction
+	 *
+	 * @param visitedLocation The location where the user is currently present.
+	 * @return List of NearByAttractionDTO
+	 */
 	public List<NearByAttractionDTO> getNearByAttractionsList(VisitedLocation visitedLocation) {
 		List<Attraction> nearByAttractions = getNearByAttractions(visitedLocation);
 		List<NearByAttractionDTO> nearByAttractionDTOList = new ArrayList<>();
@@ -147,6 +212,11 @@ public class TourGuideService {
 		return nearByAttractionDTOList;
 	}
 
+	/**
+	 * > Get all the users, get the location of each user, and put the user id and location into a map
+	 *
+	 * @return A map of all the users and their last visited location.
+	 */
 	public Map<String, Location> getAllCurrentLocation() {
 		List<User> allUser = getAllUsers();
 		Map<String, Location> allLocation = new HashMap<>();
