@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">2.054s</div>
+<div class="counter">3.073s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">getAllCurrentLocationsTest</td>
-<td class="success">0.589s</td>
+<td class="success">0.460s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -89,7 +89,7 @@
 </tr>
 <tr>
 <td class="success">getNearbyAttractionsTest</td>
-<td class="success">1.412s</td>
+<td class="success">2.592s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -99,7 +99,7 @@
 </tr>
 <tr>
 <td class="success">getTripDealsTest</td>
-<td class="success">0.041s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -117,33 +117,31 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>17:40:14.490 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class tourGuide.controller.TourGuideControllerIT]
-17:40:14.503 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-17:40:14.520 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-17:40:14.560 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [tourGuide.controller.TourGuideControllerIT] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-17:40:14.588 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.controller.TourGuideControllerIT], using SpringBootContextLoader
-17:40:14.596 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.controller.TourGuideControllerIT]: class path resource [tourGuide/controller/TourGuideControllerIT-context.xml] does not exist
-17:40:14.598 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.controller.TourGuideControllerIT]: class path resource [tourGuide/controller/TourGuideControllerITContext.groovy] does not exist
-17:40:14.598 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.controller.TourGuideControllerIT]: no resource found for suffixes {-context.xml, Context.groovy}.
-17:40:14.599 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.controller.TourGuideControllerIT]: TourGuideControllerIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:40:14.672 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [tourGuide.controller.TourGuideControllerIT]
-17:40:14.804 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\ooBri\3D Objects\#Openclassroom\Projet\OC-JAVA-P8\TourGuide\build\classes\java\main\tourGuide\Application.class]
-17:40:14.827 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.controller.TourGuideControllerIT
-17:40:14.998 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [tourGuide.controller.TourGuideControllerIT]: using defaults.
-17:40:14.999 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-17:40:15.021 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-17:40:15.022 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-17:40:15.022 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@43b56d66, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1548e936, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5057d783, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7d95c79c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@15235b15, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@47f011de, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@29f53d6c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7a0fa6e9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@757bb14e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@32c220de]
-17:40:15.028 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.029 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.034 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.035 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.036 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.036 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.043 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@2ea609f8 testClass = TourGuideControllerIT, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@ca295e4 testClass = TourGuideControllerIT, locations = '{}', classes = '{class tourGuide.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@61c41034, [ImportsContextCustomizer@33cc057f key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@1141bf59, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@3f9e349e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@71512898], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
-17:40:15.044 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.045 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
-17:40:15.076 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+<pre>00:08:02.039 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class tourGuide.controller.TourGuideControllerIT]
+00:08:02.049 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+00:08:02.063 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+00:08:02.094 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [tourGuide.controller.TourGuideControllerIT] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+00:08:02.112 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.controller.TourGuideControllerIT], using SpringBootContextLoader
+00:08:02.118 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.controller.TourGuideControllerIT]: class path resource [tourGuide/controller/TourGuideControllerIT-context.xml] does not exist
+00:08:02.119 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.controller.TourGuideControllerIT]: class path resource [tourGuide/controller/TourGuideControllerITContext.groovy] does not exist
+00:08:02.119 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.controller.TourGuideControllerIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+00:08:02.121 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.controller.TourGuideControllerIT]: TourGuideControllerIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:08:02.182 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.282 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\ooBri\3D Objects\#Openclassroom\Projet\OC-JAVA-P8\TourGuide\build\classes\java\main\tourGuide\Application.class]
+00:08:02.292 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.controller.TourGuideControllerIT
+00:08:02.436 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [tourGuide.controller.TourGuideControllerIT]: using defaults.
+00:08:02.437 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+00:08:02.455 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+00:08:02.456 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+00:08:02.456 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6fadfe8d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4b1f7a1f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6db6570d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@43d93cf6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4300eb96, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@73ffae6b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2c2e9126, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@261a36d9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@620225d7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@6c00430a]
+00:08:02.459 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.460 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.461 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.461 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.467 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@70577aca testClass = TourGuideControllerIT, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@24dcd6f4 testClass = TourGuideControllerIT, locations = '{}', classes = '{class tourGuide.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e7e8512, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@473eebd2, [ImportsContextCustomizer@17351f13 key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@fcf2ad5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1baf26c0, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@5f42d153], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+00:08:02.468 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.469 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.controller.TourGuideControllerIT]
+00:08:02.499 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -153,124 +151,124 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.1.6.RELEASE)
 
-2022-10-09 17:40:15.493  INFO 34072 --- [    Test worker] t.controller.TourGuideControllerIT       : Starting TourGuideControllerIT on LAPTOP-07K44296 with PID 34072 (started by ooBri in C:\Users\ooBri\3D Objects\#Openclassroom\Projet\OC-JAVA-P8\TourGuide)
-2022-10-09 17:40:15.494 DEBUG 34072 --- [    Test worker] t.controller.TourGuideControllerIT       : Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
-2022-10-09 17:40:15.496  INFO 34072 --- [    Test worker] t.controller.TourGuideControllerIT       : No active profile set, falling back to default profiles: default
-2022-10-09 17:40:16.904  INFO 34072 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
-2022-10-09 17:40:16.904 DEBUG 34072 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
-2022-10-09 17:40:16.941  INFO 34072 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
-2022-10-09 17:40:16.976 DEBUG 34072 --- [    Test worker] tourGuide.service.TourGuideService       : Created 100 internal test users.
-2022-10-09 17:40:16.976 DEBUG 34072 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
-2022-10-09 17:40:16.982 DEBUG 34072 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
-2022-10-09 17:40:16.983  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser78
-2022-10-09 17:40:16.991  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser77
-2022-10-09 17:40:16.992  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser79
-2022-10-09 17:40:16.992  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser74
-2022-10-09 17:40:16.993  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser73
-2022-10-09 17:40:16.993  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser76
-2022-10-09 17:40:16.993  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser75
-2022-10-09 17:40:16.993  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser70
-2022-10-09 17:40:16.994  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser72
-2022-10-09 17:40:16.994  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser71
-2022-10-09 17:40:16.994  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser90
-2022-10-09 17:40:16.995  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser89
-2022-10-09 17:40:16.995  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser88
-2022-10-09 17:40:16.996  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser85
-2022-10-09 17:40:16.996  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser84
-2022-10-09 17:40:16.997  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser87
-2022-10-09 17:40:16.997  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser86
-2022-10-09 17:40:16.997  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser81
-2022-10-09 17:40:16.997  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser80
-2022-10-09 17:40:16.998  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser83
-2022-10-09 17:40:16.998  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser82
-2022-10-09 17:40:16.998  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser9
-2022-10-09 17:40:16.998  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser8
-2022-10-09 17:40:16.998  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser19
-2022-10-09 17:40:16.999  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser16
-2022-10-09 17:40:16.999  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser15
-2022-10-09 17:40:16.999  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser18
-2022-10-09 17:40:16.999  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser17
-2022-10-09 17:40:16.999  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser12
-2022-10-09 17:40:17.000  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser11
-2022-10-09 17:40:17.000  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser99
-2022-10-09 17:40:17.000  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser14
-2022-10-09 17:40:17.000  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser13
-2022-10-09 17:40:17.001  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser3
-2022-10-09 17:40:17.001  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser96
-2022-10-09 17:40:17.001  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser2
-2022-10-09 17:40:17.001  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser95
-2022-10-09 17:40:17.002  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser1
-2022-10-09 17:40:17.002  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser10
-2022-10-09 17:40:17.002  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser98
-2022-10-09 17:40:17.003  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
-2022-10-09 17:40:17.003  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser97
-2022-10-09 17:40:17.003  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser7
-2022-10-09 17:40:17.003  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser92
-2022-10-09 17:40:17.004  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser6
-2022-10-09 17:40:17.004  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser91
-2022-10-09 17:40:17.004  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser5
-2022-10-09 17:40:17.004  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser94
-2022-10-09 17:40:17.004  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser4
-2022-10-09 17:40:17.005  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser93
-2022-10-09 17:40:17.005  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser27
-2022-10-09 17:40:17.005  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser26
-2022-10-09 17:40:17.005  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser29
-2022-10-09 17:40:17.006  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser28
-2022-10-09 17:40:17.006  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser23
-2022-10-09 17:40:17.006  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser22
-2022-10-09 17:40:17.007  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser25
-2022-10-09 17:40:17.007  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser24
-2022-10-09 17:40:17.008  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser21
-2022-10-09 17:40:17.008  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser20
-2022-10-09 17:40:17.009  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser38
-2022-10-09 17:40:17.010  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser37
-2022-10-09 17:40:17.010  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser39
-2022-10-09 17:40:17.010  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser34
-2022-10-09 17:40:17.010  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser33
-2022-10-09 17:40:17.010  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser36
-2022-10-09 17:40:17.011  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser35
-2022-10-09 17:40:17.011  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser30
-2022-10-09 17:40:17.011  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser32
-2022-10-09 17:40:17.011  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser31
-2022-10-09 17:40:17.011  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser49
-2022-10-09 17:40:17.012  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser48
-2022-10-09 17:40:17.012  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser45
-2022-10-09 17:40:17.012  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser44
-2022-10-09 17:40:17.012  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser47
-2022-10-09 17:40:17.012  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser46
-2022-10-09 17:40:17.012  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser41
-2022-10-09 17:40:17.013  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser40
-2022-10-09 17:40:17.013  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser43
-2022-10-09 17:40:17.013  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser42
-2022-10-09 17:40:17.013  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser59
-2022-10-09 17:40:17.013  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser56
-2022-10-09 17:40:17.014  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser55
-2022-10-09 17:40:17.014  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser58
-2022-10-09 17:40:17.014  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser57
-2022-10-09 17:40:17.014  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser52
-2022-10-09 17:40:17.015  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser51
-2022-10-09 17:40:17.015  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser54
-2022-10-09 17:40:17.015  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser53
-2022-10-09 17:40:17.015  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser50
-2022-10-09 17:40:17.016  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser67
-2022-10-09 17:40:17.016  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser66
-2022-10-09 17:40:17.017  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser69
-2022-10-09 17:40:17.017  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser68
-2022-10-09 17:40:17.017  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser63
-2022-10-09 17:40:17.018  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser62
-2022-10-09 17:40:17.018  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser65
-2022-10-09 17:40:17.018  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser64
-2022-10-09 17:40:17.018  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser61
-2022-10-09 17:40:17.018  INFO 34072 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser60
-2022-10-09 17:40:17.019 DEBUG 34072 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
-2022-10-09 17:40:17.019 DEBUG 34072 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
-2022-10-09 17:40:17.795  INFO 34072 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2022-10-09 17:40:18.767  INFO 34072 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2022-10-09 17:40:18.767  INFO 34072 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2022-10-09 17:40:18.793  INFO 34072 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-10-09 17:40:18.831  INFO 34072 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 64 ms
-2022-10-09 17:40:18.897  INFO 34072 --- [    Test worker] t.controller.TourGuideControllerIT       : Started TourGuideControllerIT in 3.804 seconds (JVM running for 5.239)
-2022-10-09 17:40:19.575  INFO 34072 --- [    Test worker] tourGuide.service.TourGuideService       : [gpsUtil.location.Attraction@63cde391, gpsUtil.location.Attraction@609df04c, gpsUtil.location.Attraction@2e168e9e, gpsUtil.location.Attraction@33506f7a, gpsUtil.location.Attraction@3f8dc3ea, gpsUtil.location.Attraction@309d5bc7, gpsUtil.location.Attraction@2ae55134, gpsUtil.location.Attraction@1afed0ad, gpsUtil.location.Attraction@4bbdc28b, gpsUtil.location.Attraction@11a4eb58, gpsUtil.location.Attraction@114874a9, gpsUtil.location.Attraction@7d5fa595, gpsUtil.location.Attraction@5853892f, gpsUtil.location.Attraction@6e9b5756, gpsUtil.location.Attraction@3ca48b10, gpsUtil.location.Attraction@3cd7e21c, gpsUtil.location.Attraction@78091e58, gpsUtil.location.Attraction@4c9cd7e8, gpsUtil.location.Attraction@54f83960, gpsUtil.location.Attraction@573cf6e1, gpsUtil.location.Attraction@67f7d980, gpsUtil.location.Attraction@4dfe6101, gpsUtil.location.Attraction@585862e7, gpsUtil.location.Attraction@68630cf3, gpsUtil.location.Attraction@3181e3a6, gpsUtil.location.Attraction@fc96afe]
+2022-10-10 00:08:02.864  INFO 93500 --- [    Test worker] t.controller.TourGuideControllerIT       : Starting TourGuideControllerIT on LAPTOP-07K44296 with PID 93500 (started by ooBri in C:\Users\ooBri\3D Objects\#Openclassroom\Projet\OC-JAVA-P8\TourGuide)
+2022-10-10 00:08:02.865 DEBUG 93500 --- [    Test worker] t.controller.TourGuideControllerIT       : Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2022-10-10 00:08:02.866  INFO 93500 --- [    Test worker] t.controller.TourGuideControllerIT       : No active profile set, falling back to default profiles: default
+2022-10-10 00:08:04.011  INFO 93500 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-10 00:08:04.011 DEBUG 93500 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-10 00:08:04.044  INFO 93500 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2022-10-10 00:08:04.067 DEBUG 93500 --- [    Test worker] tourGuide.service.TourGuideService       : Created 100 internal test users.
+2022-10-10 00:08:04.067 DEBUG 93500 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-10 00:08:04.072 DEBUG 93500 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2022-10-10 00:08:04.073  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser78
+2022-10-10 00:08:04.079  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser77
+2022-10-10 00:08:04.080  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser79
+2022-10-10 00:08:04.080  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser74
+2022-10-10 00:08:04.080  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser73
+2022-10-10 00:08:04.080  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser76
+2022-10-10 00:08:04.080  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser75
+2022-10-10 00:08:04.081  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser70
+2022-10-10 00:08:04.081  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser72
+2022-10-10 00:08:04.081  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser71
+2022-10-10 00:08:04.081  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser90
+2022-10-10 00:08:04.081  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser89
+2022-10-10 00:08:04.081  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser88
+2022-10-10 00:08:04.082  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser85
+2022-10-10 00:08:04.082  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser84
+2022-10-10 00:08:04.082  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser87
+2022-10-10 00:08:04.082  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser86
+2022-10-10 00:08:04.082  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser81
+2022-10-10 00:08:04.082  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser80
+2022-10-10 00:08:04.083  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser83
+2022-10-10 00:08:04.083  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser82
+2022-10-10 00:08:04.083  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser9
+2022-10-10 00:08:04.083  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser8
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser19
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser16
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser15
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser18
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser17
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser12
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser11
+2022-10-10 00:08:04.084  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser99
+2022-10-10 00:08:04.085  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser14
+2022-10-10 00:08:04.085  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser13
+2022-10-10 00:08:04.085  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser3
+2022-10-10 00:08:04.085  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser96
+2022-10-10 00:08:04.085  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser2
+2022-10-10 00:08:04.085  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser95
+2022-10-10 00:08:04.086  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser1
+2022-10-10 00:08:04.086  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser10
+2022-10-10 00:08:04.086  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser98
+2022-10-10 00:08:04.086  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
+2022-10-10 00:08:04.086  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser97
+2022-10-10 00:08:04.087  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser7
+2022-10-10 00:08:04.087  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser92
+2022-10-10 00:08:04.087  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser6
+2022-10-10 00:08:04.087  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser91
+2022-10-10 00:08:04.087  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser5
+2022-10-10 00:08:04.088  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser94
+2022-10-10 00:08:04.088  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser4
+2022-10-10 00:08:04.088  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser93
+2022-10-10 00:08:04.089  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser27
+2022-10-10 00:08:04.089  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser26
+2022-10-10 00:08:04.089  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser29
+2022-10-10 00:08:04.089  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser28
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser23
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser22
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser25
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser24
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser21
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser20
+2022-10-10 00:08:04.090  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser38
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser37
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser39
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser34
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser33
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser36
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser35
+2022-10-10 00:08:04.091  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser30
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser32
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser31
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser49
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser48
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser45
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser44
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser47
+2022-10-10 00:08:04.092  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser46
+2022-10-10 00:08:04.093  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser41
+2022-10-10 00:08:04.093  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser40
+2022-10-10 00:08:04.093  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser43
+2022-10-10 00:08:04.093  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser42
+2022-10-10 00:08:04.093  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser59
+2022-10-10 00:08:04.093  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser56
+2022-10-10 00:08:04.094  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser55
+2022-10-10 00:08:04.094  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser58
+2022-10-10 00:08:04.094  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser57
+2022-10-10 00:08:04.094  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser52
+2022-10-10 00:08:04.095  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser51
+2022-10-10 00:08:04.095  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser54
+2022-10-10 00:08:04.095  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser53
+2022-10-10 00:08:04.095  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser50
+2022-10-10 00:08:04.095  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser67
+2022-10-10 00:08:04.095  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser66
+2022-10-10 00:08:04.096  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser69
+2022-10-10 00:08:04.096  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser68
+2022-10-10 00:08:04.096  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser63
+2022-10-10 00:08:04.096  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser62
+2022-10-10 00:08:04.096  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser65
+2022-10-10 00:08:04.097  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser64
+2022-10-10 00:08:04.097  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser61
+2022-10-10 00:08:04.097  INFO 93500 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser60
+2022-10-10 00:08:04.097 DEBUG 93500 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-10 00:08:04.097 DEBUG 93500 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-10 00:08:04.637  INFO 93500 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-10-10 00:08:05.298  INFO 93500 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-10-10 00:08:05.298  INFO 93500 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-10-10 00:08:05.316  INFO 93500 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-10-10 00:08:05.343  INFO 93500 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 45 ms
+2022-10-10 00:08:05.394  INFO 93500 --- [    Test worker] t.controller.TourGuideControllerIT       : Started TourGuideControllerIT in 2.878 seconds (JVM running for 4.225)
+2022-10-10 00:08:05.917  INFO 93500 --- [    Test worker] tourGuide.service.TourGuideService       : [gpsUtil.location.Attraction@76c7e174, gpsUtil.location.Attraction@5624a7f5, gpsUtil.location.Attraction@54cd178c, gpsUtil.location.Attraction@46abe6f1, gpsUtil.location.Attraction@f2e7311, gpsUtil.location.Attraction@7c46760e, gpsUtil.location.Attraction@400b6f7d, gpsUtil.location.Attraction@590e85e3, gpsUtil.location.Attraction@2544c328, gpsUtil.location.Attraction@6a7d2788, gpsUtil.location.Attraction@7196dd3d, gpsUtil.location.Attraction@5c9a7f71, gpsUtil.location.Attraction@5f44ba49, gpsUtil.location.Attraction@5c86974e, gpsUtil.location.Attraction@1bbec6d6, gpsUtil.location.Attraction@14d04327, gpsUtil.location.Attraction@6e3c3506, gpsUtil.location.Attraction@6e8f368, gpsUtil.location.Attraction@6b0d0d15, gpsUtil.location.Attraction@7dd2b228, gpsUtil.location.Attraction@72492c91, gpsUtil.location.Attraction@337be203, gpsUtil.location.Attraction@301d24dc, gpsUtil.location.Attraction@58b69305, gpsUtil.location.Attraction@63a00126, gpsUtil.location.Attraction@f278cab]
 </pre>
 </span>
 </div>
@@ -282,7 +280,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8.1</a> at 9 oct. 2022 à 17:40:21</p>
+<a href="http://www.gradle.org">Gradle 4.8.1</a> at 10 oct. 2022 à 00:08:15</p>
 </div>
 </div>
 </body>

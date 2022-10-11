@@ -40,10 +40,18 @@ public class RewardsService {
 		this.rewardsCentral = rewardCentral;
 	}
 	
+	/**
+	 * Sets the proximity buffer
+	 *
+	 * @param proximityBuffer
+	 */
 	public void setProximityBuffer(int proximityBuffer) {
 		this.proximityBuffer = proximityBuffer;
 	}
 	
+	/**
+	 * Set the proximity buffer to the default value.
+	 */
 	public void setDefaultProximityBuffer() {
 		proximityBuffer = defaultProximityBuffer;
 	}
