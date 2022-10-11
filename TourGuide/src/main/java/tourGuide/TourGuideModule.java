@@ -1,5 +1,6 @@
 package tourGuide;
 
+import org.javamoney.moneta.Money;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,5 +25,4 @@ public class TourGuideModule {
 	public RewardCentral getRewardCentral() {
 		return new RewardCentral();
 	}
-	
 }

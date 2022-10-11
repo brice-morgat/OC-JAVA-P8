@@ -4,8 +4,10 @@ import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 
 import lombok.Builder;
+import lombok.ToString;
 import org.javamoney.moneta.Money;
 
+@ToString
 public class UserPreferences {
 	
 	private int attractionProximity = Integer.MAX_VALUE;
