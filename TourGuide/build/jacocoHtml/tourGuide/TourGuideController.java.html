@@ -3,6 +3,8 @@
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,9 +22,10 @@ import tourGuide.user.UserPreferences;
 import tripPricer.Provider;
 
 @RestController
-<span class="fc" id="L23">public class TourGuideController {</span>
+<span class="fc" id="L25">public class TourGuideController {</span>
+<span class="fc" id="L26">    private Logger logger = LoggerFactory.getLogger(TourGuideController.class);</span>
 
-	@Autowired
+    @Autowired
 	TourGuideService tourGuideService;
 	
     /**
@@ -32,7 +35,7 @@ import tripPricer.Provider;
      */
     @RequestMapping(&quot;/&quot;)
     public String index() {
-<span class="fc" id="L35">        return &quot;Greetings from TourGuide!&quot;;</span>
+<span class="nc" id="L38">        return &quot;Greetings from TourGuide!&quot;;</span>
     }
     
     /**
@@ -43,8 +46,9 @@ import tripPricer.Provider;
      */
     @GetMapping(&quot;/getLocation&quot;)
     public String getLocation(@RequestParam String userName) throws ExecutionException, InterruptedException {
-<span class="fc" id="L46">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));</span>
-<span class="fc" id="L47">		return JsonStream.serialize(visitedLocation.location);</span>
+<span class="nc" id="L49">        logger.info(&quot;Get Location for {}&quot;, userName);</span>
+<span class="nc" id="L50">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));</span>
+<span class="nc" id="L51">		return JsonStream.serialize(visitedLocation.location);</span>
     }
 
     /**
@@ -55,8 +59,9 @@ import tripPricer.Provider;
      */
     @RequestMapping(&quot;/getNearbyAttractions&quot;)
     public String getNearbyAttractions(@RequestParam String userName) throws ExecutionException, InterruptedException {
-<span class="fc" id="L58">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));</span>
-<span class="fc" id="L59">    	return JsonStream.serialize(tourGuideService.getNearByAttractionsList(visitedLocation));</span>
+<span class="nc" id="L62">        logger.info(&quot;Get near by attractions for {}&quot;, userName);</span>
+<span class="nc" id="L63">    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));</span>
+<span class="nc" id="L64">    	return JsonStream.serialize(tourGuideService.getNearByAttractionsList(visitedLocation));</span>
     }
     
     /**
@@ -67,7 +72,8 @@ import tripPricer.Provider;
      */
     @RequestMapping(&quot;/getRewards&quot;)
     public String getRewards(@RequestParam String userName) {
-<span class="fc" id="L70">    	return JsonStream.serialize(tourGuideService.getUserRewards(getUser(userName)));</span>
+<span class="nc" id="L75">        logger.info(&quot;Get Rewards for {}&quot;, userName);</span>
+<span class="nc" id="L76">    	return JsonStream.serialize(tourGuideService.getUserRewards(getUser(userName)));</span>
     }
     
     /**
@@ -77,7 +83,8 @@ import tripPricer.Provider;
      */
     @RequestMapping(&quot;/getAllCurrentLocations&quot;)
     public String getAllCurrentLocations() {
-<span class="fc" id="L80">    	return JsonStream.serialize(tourGuideService.getAllCurrentLocation());</span>
+<span class="nc" id="L86">        logger.info(&quot;Get all current locations&quot;);</span>
+<span class="nc" id="L87">    	return JsonStream.serialize(tourGuideService.getAllCurrentLocation());</span>
     }
     
     /**
@@ -88,8 +95,9 @@ import tripPricer.Provider;
      */
     @RequestMapping(&quot;/getTripDeals&quot;)
     public String getTripDeals(@RequestParam String userName) {
-<span class="fc" id="L91">    	List&lt;Provider&gt; providers = tourGuideService.getTripDeals(getUser(userName));</span>
-<span class="fc" id="L92">    	return JsonStream.serialize(providers);</span>
+<span class="nc" id="L98">        logger.info(&quot;Get trip deals for {}&quot;, userName);</span>
+<span class="nc" id="L99">    	List&lt;Provider&gt; providers = tourGuideService.getTripDeals(getUser(userName));</span>
+<span class="nc" id="L100">    	return JsonStream.serialize(providers);</span>
     }
 
     /**
@@ -101,12 +109,13 @@ import tripPricer.Provider;
      */
     @PutMapping(&quot;/updateUserPreferences&quot;)
     public String updateUserPreferences(@RequestParam String userName, @RequestBody UserPreferences userPreferences) {
-<span class="fc" id="L104">        User user = getUser(userName);</span>
-<span class="fc" id="L105">        return JsonStream.serialize(tourGuideService.updateUserPreferences(user,userPreferences));</span>
+<span class="nc" id="L112">        logger.info(&quot;Update user preferences for {}&quot;, userName);</span>
+<span class="nc" id="L113">        User user = getUser(userName);</span>
+<span class="nc" id="L114">        return JsonStream.serialize(tourGuideService.updateUserPreferences(user,userPreferences));</span>
     }
     
     private User getUser(String userName) {
-<span class="fc" id="L109">    	return tourGuideService.getUser(userName);</span>
+<span class="nc" id="L118">    	return tourGuideService.getUser(userName);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

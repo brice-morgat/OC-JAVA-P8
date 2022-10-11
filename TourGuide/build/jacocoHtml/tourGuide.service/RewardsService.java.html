@@ -62,37 +62,37 @@ public class RewardsService {
 	 * @param user The user object that we are calculating rewards for.
 	 */
 	public void calculateRewards(User user) {
-<span class="nc" id="L65">		CopyOnWriteArrayList&lt;VisitedLocation&gt; userLocations = new CopyOnWriteArrayList&lt;&gt;(user.getVisitedLocations());</span>
-<span class="nc" id="L66">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
+<span class="fc" id="L65">		CopyOnWriteArrayList&lt;VisitedLocation&gt; userLocations = new CopyOnWriteArrayList&lt;&gt;(user.getVisitedLocations());</span>
+<span class="fc" id="L66">		List&lt;Attraction&gt; attractions = gpsUtil.getAttractions();</span>
 
-<span class="nc" id="L68">		CopyOnWriteArrayList&lt;CompletableFuture&gt; futures = new CopyOnWriteArrayList&lt;&gt;();</span>
+<span class="fc" id="L68">		CopyOnWriteArrayList&lt;CompletableFuture&gt; futures = new CopyOnWriteArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L70" title="All 2 branches missed.">		for(VisitedLocation visitedLocation : userLocations) {</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">			for (Attraction attr : attractions) {</span>
-<span class="nc" id="L72">				futures.add(</span>
-<span class="nc" id="L73">						CompletableFuture.runAsync(()-&gt; {</span>
-<span class="nc bnc" id="L74" title="All 2 branches missed.">							if(user.getUserRewards().stream().filter(r -&gt; r.attraction.attractionName.equals(attr.attractionName)).count() == 0) {</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">								if(nearAttraction(visitedLocation, attr)) {</span>
-<span class="nc" id="L76">									user.addUserReward( new UserReward(visitedLocation, attr,  rewardsCentral.getAttractionRewardPoints(attr.attractionId, user.getUserId())));</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">		for(VisitedLocation visitedLocation : userLocations) {</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			for (Attraction attr : attractions) {</span>
+<span class="fc" id="L72">				futures.add(</span>
+<span class="fc" id="L73">						CompletableFuture.runAsync(()-&gt; {</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">							if(user.getUserRewards().stream().filter(r -&gt; r.attraction.attractionName.equals(attr.attractionName)).count() == 0) {</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">								if(nearAttraction(visitedLocation, attr)) {</span>
+<span class="fc" id="L76">									user.addUserReward( new UserReward(visitedLocation, attr,  rewardsCentral.getAttractionRewardPoints(attr.attractionId, user.getUserId())));</span>
 								}
 							}
-<span class="nc" id="L79">						},executorService)</span>
+<span class="fc" id="L79">						},executorService)</span>
 				);
-<span class="nc" id="L81">			}</span>
-<span class="nc" id="L82">		}</span>
+<span class="fc" id="L81">			}</span>
+<span class="fc" id="L82">		}</span>
 
-<span class="nc" id="L84">		futures.forEach((n)-&gt; {</span>
+<span class="fc" id="L84">		futures.forEach((n)-&gt; {</span>
 			try {
-<span class="nc" id="L86">				n.get();</span>
+<span class="fc" id="L86">				n.get();</span>
 <span class="nc" id="L87">			} catch (InterruptedException e) {</span>
 <span class="nc" id="L88">				logger.error(&quot;Calculate Rewards InterruptedException: &quot; + e);</span>
 <span class="nc" id="L89">			} catch (ExecutionException e) {</span>
 <span class="nc" id="L90">				logger.error(&quot;Calculate Rewards ExecutionException: &quot; + e);</span>
 			} finally {
-<span class="nc" id="L92">				futures.remove(n);</span>
+<span class="fc" id="L92">				futures.remove(n);</span>
 			}
-<span class="nc" id="L94">		});</span>
-<span class="nc" id="L95">	}</span>
+<span class="fc" id="L94">		});</span>
+<span class="fc" id="L95">	}</span>
 
 	/**
 	 * If the distance between the attraction and the location is greater than the attraction proximity range, return false,
@@ -115,7 +115,7 @@ public class RewardsService {
 	 * @return A boolean value.
 	 */
 	private boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-<span class="nc bnc" id="L118" title="All 2 branches missed.">		return getDistance(attraction, visitedLocation.location) &gt;= proximityBuffer ? false : true;</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">		return getDistance(attraction, visitedLocation.location) &gt;= proximityBuffer ? false : true;</span>
 	}
 	
 	/**

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tourGuide.TestPerformance" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-11T22:16:27" hostname="LAPTOP-07K44296" time="3.16">
+  <properties/>
+  <testcase name="highVolumeGetRewards" classname="tourGuide.TestPerformance" time="3.16"/>
+  <system-out><![CDATA[00:16:24.162 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class tourGuide.TestPerformance]
+00:16:24.172 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+00:16:24.186 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+00:16:24.215 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [tourGuide.TestPerformance] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+00:16:24.232 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [tourGuide.TestPerformance], using SpringBootContextLoader
+00:16:24.236 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.TestPerformance]: class path resource [tourGuide/TestPerformance-context.xml] does not exist
+00:16:24.237 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [tourGuide.TestPerformance]: class path resource [tourGuide/TestPerformanceContext.groovy] does not exist
+00:16:24.237 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [tourGuide.TestPerformance]: no resource found for suffixes {-context.xml, Context.groovy}.
+00:16:24.238 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [tourGuide.TestPerformance]: TestPerformance does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:16:24.289 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [tourGuide.TestPerformance]
+00:16:24.391 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\ooBri\3D Objects\#Openclassroom\Projet\OC-JAVA-P8\TourGuide\build\classes\java\main\tourGuide\Application.class]
+00:16:24.404 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration tourGuide.Application for test class tourGuide.TestPerformance
+00:16:24.546 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [tourGuide.TestPerformance]: using defaults.
+00:16:24.546 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+00:16:24.566 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+00:16:24.567 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+00:16:24.567 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@37155ba1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@e6a04d9, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@dc9a6dd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@168ca452, org.springframework.test.context.support.DirtiesContextTestExecutionListener@b593d71, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55cbbc0f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@15741725, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@66a99fed, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@24d984fc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2c7a6fac]
+00:16:24.572 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.TestPerformance]
+00:16:24.573 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.TestPerformance]
+00:16:24.578 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.TestPerformance]
+00:16:24.579 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.TestPerformance]
+00:16:24.579 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.TestPerformance]
+00:16:24.579 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.TestPerformance]
+00:16:24.584 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@31509cf5 testClass = TestPerformance, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3b1ec935 testClass = TestPerformance, locations = '{}', classes = '{class tourGuide.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1a528d1f, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@267df397, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2b701492, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4165a958], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+00:16:24.585 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [tourGuide.TestPerformance]
+00:16:24.586 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [tourGuide.TestPerformance]
+00:16:24.624 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.6.RELEASE)
+
+2022-10-12 00:16:24.931  INFO 19940 --- [    Test worker] tourGuide.TestPerformance                : Starting TestPerformance on LAPTOP-07K44296 with PID 19940 (started by ooBri in C:\Users\ooBri\3D Objects\#Openclassroom\Projet\OC-JAVA-P8\TourGuide)
+2022-10-12 00:16:24.932 DEBUG 19940 --- [    Test worker] tourGuide.TestPerformance                : Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2022-10-12 00:16:24.933  INFO 19940 --- [    Test worker] tourGuide.TestPerformance                : No active profile set, falling back to default profiles: default
+2022-10-12 00:16:26.085  INFO 19940 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-12 00:16:26.085 DEBUG 19940 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-12 00:16:26.109  INFO 19940 --- [    Test worker] o.j.m.DefaultMonetaryContextFactory      : Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+2022-10-12 00:16:26.130 DEBUG 19940 --- [    Test worker] tourGuide.service.TourGuideService       : Created 100 internal test users.
+2022-10-12 00:16:26.130 DEBUG 19940 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-12 00:16:26.134 DEBUG 19940 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2022-10-12 00:16:26.134  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser78
+2022-10-12 00:16:26.142  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser77
+2022-10-12 00:16:26.142  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser79
+2022-10-12 00:16:26.142  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser74
+2022-10-12 00:16:26.143  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser73
+2022-10-12 00:16:26.143  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser76
+2022-10-12 00:16:26.143  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser75
+2022-10-12 00:16:26.143  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser70
+2022-10-12 00:16:26.143  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser72
+2022-10-12 00:16:26.143  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser71
+2022-10-12 00:16:26.144  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser90
+2022-10-12 00:16:26.144  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser89
+2022-10-12 00:16:26.144  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser88
+2022-10-12 00:16:26.144  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser85
+2022-10-12 00:16:26.145  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser84
+2022-10-12 00:16:26.145  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser87
+2022-10-12 00:16:26.145  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser86
+2022-10-12 00:16:26.145  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser81
+2022-10-12 00:16:26.145  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser80
+2022-10-12 00:16:26.146  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser83
+2022-10-12 00:16:26.146  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser82
+2022-10-12 00:16:26.146  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser9
+2022-10-12 00:16:26.147  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser8
+2022-10-12 00:16:26.147  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser19
+2022-10-12 00:16:26.147  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser16
+2022-10-12 00:16:26.147  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser15
+2022-10-12 00:16:26.147  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser18
+2022-10-12 00:16:26.148  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser17
+2022-10-12 00:16:26.148  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser12
+2022-10-12 00:16:26.148  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser11
+2022-10-12 00:16:26.148  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser99
+2022-10-12 00:16:26.148  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser14
+2022-10-12 00:16:26.148  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser13
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser3
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser96
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser2
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser95
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser1
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser10
+2022-10-12 00:16:26.149  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser98
+2022-10-12 00:16:26.150  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
+2022-10-12 00:16:26.150  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser97
+2022-10-12 00:16:26.150  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser7
+2022-10-12 00:16:26.151  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser92
+2022-10-12 00:16:26.151  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser6
+2022-10-12 00:16:26.151  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser91
+2022-10-12 00:16:26.152  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser5
+2022-10-12 00:16:26.152  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser94
+2022-10-12 00:16:26.152  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser4
+2022-10-12 00:16:26.152  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser93
+2022-10-12 00:16:26.152  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser27
+2022-10-12 00:16:26.152  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser26
+2022-10-12 00:16:26.153  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser29
+2022-10-12 00:16:26.153  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser28
+2022-10-12 00:16:26.153  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser23
+2022-10-12 00:16:26.153  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser22
+2022-10-12 00:16:26.153  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser25
+2022-10-12 00:16:26.154  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser24
+2022-10-12 00:16:26.154  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser21
+2022-10-12 00:16:26.154  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser20
+2022-10-12 00:16:26.154  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser38
+2022-10-12 00:16:26.154  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser37
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser39
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser34
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser33
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser36
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser35
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser30
+2022-10-12 00:16:26.155  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser32
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser31
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser49
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser48
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser45
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser44
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser47
+2022-10-12 00:16:26.156  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser46
+2022-10-12 00:16:26.157  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser41
+2022-10-12 00:16:26.157  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser40
+2022-10-12 00:16:26.157  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser43
+2022-10-12 00:16:26.157  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser42
+2022-10-12 00:16:26.157  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser59
+2022-10-12 00:16:26.157  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser56
+2022-10-12 00:16:26.158  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser55
+2022-10-12 00:16:26.158  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser58
+2022-10-12 00:16:26.158  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser57
+2022-10-12 00:16:26.159  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser52
+2022-10-12 00:16:26.159  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser51
+2022-10-12 00:16:26.159  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser54
+2022-10-12 00:16:26.159  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser53
+2022-10-12 00:16:26.159  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser50
+2022-10-12 00:16:26.159  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser67
+2022-10-12 00:16:26.160  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser66
+2022-10-12 00:16:26.160  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser69
+2022-10-12 00:16:26.160  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser68
+2022-10-12 00:16:26.160  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser63
+2022-10-12 00:16:26.160  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser62
+2022-10-12 00:16:26.161  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser65
+2022-10-12 00:16:26.162  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser64
+2022-10-12 00:16:26.162  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser61
+2022-10-12 00:16:26.162  INFO 19940 --- [pool-3-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser60
+2022-10-12 00:16:26.162 DEBUG 19940 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-12 00:16:26.162 DEBUG 19940 --- [pool-3-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+2022-10-12 00:16:26.648  INFO 19940 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-10-12 00:16:27.353  INFO 19940 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-10-12 00:16:27.401  INFO 19940 --- [    Test worker] tourGuide.TestPerformance                : Started TestPerformance in 2.761 seconds (JVM running for 4.035)
+2022-10-12 00:16:27.764  INFO 19940 --- [    Test worker] tourGuide.service.TourGuideService       : TestMode enabled
+2022-10-12 00:16:27.765 DEBUG 19940 --- [    Test worker] tourGuide.service.TourGuideService       : Initializing users
+2022-10-12 00:16:27.769 DEBUG 19940 --- [    Test worker] tourGuide.service.TourGuideService       : Created 100 internal test users.
+2022-10-12 00:16:27.769 DEBUG 19940 --- [    Test worker] tourGuide.service.TourGuideService       : Finished initializing users
+2022-10-12 00:16:27.769 DEBUG 19940 --- [pool-7-thread-1] tourGuide.tracker.Tracker                : Begin Tracker. Tracking 100 users.
+2022-10-12 00:16:27.769  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser78
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser77
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser79
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser74
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser73
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser76
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser75
+2022-10-12 00:16:27.770  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser70
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser72
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser71
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser90
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser89
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser88
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser85
+2022-10-12 00:16:27.771  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser84
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser87
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser86
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser81
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser80
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser83
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser82
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser9
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser8
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser19
+2022-10-12 00:16:27.772  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser16
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser15
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser18
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser17
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser12
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser11
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser99
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser14
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser13
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser3
+2022-10-12 00:16:27.773  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser96
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser2
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser95
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser1
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser10
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser98
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser0
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser97
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser7
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser92
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser6
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser91
+2022-10-12 00:16:27.774  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser5
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser94
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser4
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser93
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser27
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser26
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser29
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser28
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser23
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser22
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser25
+2022-10-12 00:16:27.775  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser24
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser21
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser20
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser38
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser37
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser39
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser34
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser33
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser36
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser35
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser30
+2022-10-12 00:16:27.776  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser32
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser31
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser49
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser48
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser45
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser44
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser47
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser46
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser41
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser40
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser43
+2022-10-12 00:16:27.777  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser42
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser59
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser56
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser55
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser58
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser57
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser52
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser51
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser54
+2022-10-12 00:16:27.778  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser53
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser50
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser67
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser66
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser69
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser68
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser63
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser62
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser65
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser64
+2022-10-12 00:16:27.779  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser61
+2022-10-12 00:16:27.780  INFO 19940 --- [pool-7-thread-1] tourGuide.service.TourGuideService       : Track Location for user internalUser60
+2022-10-12 00:16:27.780 DEBUG 19940 --- [pool-7-thread-1] tourGuide.tracker.Tracker                : Tracker Time Elapsed: 0 seconds.
+2022-10-12 00:16:27.780 DEBUG 19940 --- [pool-7-thread-1] tourGuide.tracker.Tracker                : Tracker sleeping
+Calcul reward: 21
+highVolumeGetRewards: Time Elapsed: 2 seconds.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
